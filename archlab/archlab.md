@@ -407,9 +407,80 @@ stack:
 
 可见`I_IADDQ`被定义为十六进制值C。  
 
-接下来根据家庭作业4.51的结果对各阶段进行修改：
-1. 取值
+接下来根据家庭作业4.51的结果对各阶段进行修改，先把4.51的答案再重复一遍：
+|阶段(Stage)	 |	iaddq V, rB|
+|---|---|
+|取指(Fetch)	 |	icode:ifun ← M1[PC] <br/> rA: rB ← M1[PC+1] <br/> valC ← M8[PC+2] <br/> valP ← PC+10|
+|译码(Decode)	 | valA ← R[rB] |
+|执行(Execute) | valE ← valA+valC|
+|访存(Memory)|	|
+|写回(Write Back)| R[rB] ← valE|
+|更新PC(PC Update)| PC ← valP|
 
+1. 取指(Fetch)	  
++ icode不需修改 
++ ifun不需修改
++ instr_valid需要加入`IIADDQ`
 
-2. 
+```
+bool instr_valid = icode in 
+	{ INOP, IHALT, IRRMOVQ, IIRMOVQ, IRMMOVQ, IMRMOVQ,
+	       IOPQ, IJXX, ICALL, IRET, IPUSHQ, IPOPQ, IIADDQ };
+```
++ iaddq指令包含寄存器指示符字节，need_regids需要加入'IIADDQ'(与上面类似)
++ iaddq指令包含常数字，need_valC需要加入'IIADDQ'
 
+2. 译码(Decode)
++ 读端口A的地址连接被设置为rB，对srcA修改：
+
+```
+## What register should be used as the A source?
+word srcA = [
+	icode in { IRRMOVQ, IRMMOVQ, IOPQ, IPUSHQ  } : rA;
+	icode in { IIADDQ } : rB;
+	icode in { IPOPQ, IRET } : RRSP;
+	1 : RNONE; # Don't need register
+];
+```
++ srcB不需修改
++ destE由于后续无需写数据，也不需修改
++ destM由于后续没有从内存读数据到寄存器，也不需修改
+
+3. 执行(Execute)
++ iaddq指令中valC作为ALU(算数逻辑单元)的aluA，因此对aluA修改如下：
+
+```
+## Select input A to ALU
+word aluA = [
+	icode in { IRRMOVQ, IOPQ } : valA;
+	icode in { IIRMOVQ, IRMMOVQ, IMRMOVQ, IIADDQ } : valC;
+	icode in { ICALL, IPUSHQ } : -8;
+	icode in { IRET, IPOPQ } : 8;
+	# Other instructions don't need ALU
+];
+```
++ iaddq指令中valA作为ALU(算数逻辑单元)的aluB，因此对aluB修改如下：
+
+```
+## Select input B to ALU
+word aluB = [
+	icode in { IIADDQ } : valA;
+	icode in { IRMMOVQ, IMRMOVQ, IOPQ, ICALL, 
+		      IPUSHQ, IRET, IPOPQ } : valB;
+	icode in { IRRMOVQ, IIRMOVQ } : 0;
+	# Other instructions don't need ALU
+];
+```
++ iaddq仍然是执行加法指令，alufun不需修改
++ iaddq需要设置条件码，因此set_cc修改如下：
+
+```
+## Should the condition codes be updated?
+bool set_cc = icode in { IOPQ, IIADDQ };
+```
+
+4. 访存(Memory)  
+iaddq指令只是对立即数和寄存器进行操作，不需要读写内存，因此这部分不许做任何改变。
+
+5. 写回(Write Back)
++

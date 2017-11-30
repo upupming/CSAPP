@@ -430,7 +430,7 @@ bool instr_valid = icode in
 + iaddq指令包含寄存器指示符字节，need_regids需要加入'IIADDQ'(与上面类似)
 + iaddq指令包含常数字，need_valC需要加入'IIADDQ'
 
-2. 译码(Decode)
+2. 译码(Decode)和写回(Write Back)
 + 读端口A的地址连接被设置为rB，对srcA修改：
 
 ```
@@ -443,8 +443,18 @@ word srcA = [
 ];
 ```
 + srcB不需修改
-+ destE由于后续无需写数据，也不需修改
-+ destM由于后续没有从内存读数据到寄存器，也不需修改
++ 在写回阶段valE写到了rB，对destE修改如下：
+
+```
+## What register should be used as the E destination?
+word dstE = [
+	icode in { IRRMOVQ } && Cnd : rB;
+	icode in { IIRMOVQ, IOPQ， IIADDQ} : rB;
+	icode in { IPUSHQ, IPOPQ, ICALL, IRET } : RRSP;
+	1 : RNONE;  # Don't write any register
+];
+```
++ destM由于后续没有从内存读数据到寄存器，不需修改
 
 3. 执行(Execute)
 + iaddq指令中valC作为ALU(算数逻辑单元)的aluA，因此对aluA修改如下：
@@ -480,7 +490,168 @@ bool set_cc = icode in { IOPQ, IIADDQ };
 ```
 
 4. 访存(Memory)  
-iaddq指令只是对立即数和寄存器进行操作，不需要读写内存，因此这部分不许做任何改变。
+iaddq指令只是对立即数和寄存器进行操作，不需要读写内存，因此这部分不许做任何改变。  
 
-5. 写回(Write Back)
-+
+修改完之后，就要根据修改的HCL文件生成一个新的SEQ模拟器(ssim)并进行测试。  
++ 生成SEQ模拟器(注意：此处可能同样需要修改Makefile，请参照Handout Instruction)：
+
+> ~/hitcis/lab5/sim/seq$ make VERSION=full
+
++ 用Y86-64程序验证模拟器：
+
+> $ ./ssim -t ../y86-code/asumi.yo
+
+输出结果如下：
+```
+Y86-64 Processor: seq-full.hcl
+137 bytes of code read
+IF: Fetched irmovq at 0x0.  ra=----, rb=%rsp, valC = 0x100
+IF: Fetched call at 0xa.  ra=----, rb=----, valC = 0x38
+Wrote 0x13 to address 0xf8
+IF: Fetched irmovq at 0x38.  ra=----, rb=%rdi, valC = 0x18
+IF: Fetched irmovq at 0x42.  ra=----, rb=%rsi, valC = 0x4
+IF: Fetched call at 0x4c.  ra=----, rb=----, valC = 0x56
+Wrote 0x55 to address 0xf0
+IF: Fetched xorq at 0x56.  ra=%rax, rb=%rax, valC = 0x0
+IF: Fetched andq at 0x58.  ra=%rsi, rb=%rsi, valC = 0x0
+IF: Fetched jmp at 0x5a.  ra=----, rb=----, valC = 0x83
+IF: Fetched jne at 0x83.  ra=----, rb=----, valC = 0x63
+IF: Fetched mrmovq at 0x63.  ra=%r10, rb=%rdi, valC = 0x0
+IF: Fetched addq at 0x6d.  ra=%r10, rb=%rax, valC = 0x0
+IF: Fetched iaddq at 0x6f.  ra=----, rb=%rdi, valC = 0x8
+IF: Fetched iaddq at 0x79.  ra=----, rb=%rsi, valC = 0xffffffffffffffff
+IF: Fetched jne at 0x83.  ra=----, rb=----, valC = 0x63
+IF: Fetched mrmovq at 0x63.  ra=%r10, rb=%rdi, valC = 0x0
+IF: Fetched addq at 0x6d.  ra=%r10, rb=%rax, valC = 0x0
+IF: Fetched iaddq at 0x6f.  ra=----, rb=%rdi, valC = 0x8
+IF: Fetched iaddq at 0x79.  ra=----, rb=%rsi, valC = 0xffffffffffffffff
+IF: Fetched jne at 0x83.  ra=----, rb=----, valC = 0x63
+IF: Fetched mrmovq at 0x63.  ra=%r10, rb=%rdi, valC = 0x0
+IF: Fetched addq at 0x6d.  ra=%r10, rb=%rax, valC = 0x0
+IF: Fetched iaddq at 0x6f.  ra=----, rb=%rdi, valC = 0x8
+IF: Fetched iaddq at 0x79.  ra=----, rb=%rsi, valC = 0xffffffffffffffff
+IF: Fetched jne at 0x83.  ra=----, rb=----, valC = 0x63
+IF: Fetched mrmovq at 0x63.  ra=%r10, rb=%rdi, valC = 0x0
+IF: Fetched addq at 0x6d.  ra=%r10, rb=%rax, valC = 0x0
+IF: Fetched iaddq at 0x6f.  ra=----, rb=%rdi, valC = 0x8
+IF: Fetched iaddq at 0x79.  ra=----, rb=%rsi, valC = 0xffffffffffffffff
+IF: Fetched jne at 0x83.  ra=----, rb=----, valC = 0x63
+IF: Fetched ret at 0x8c.  ra=----, rb=----, valC = 0x0
+IF: Fetched ret at 0x55.  ra=----, rb=----, valC = 0x0
+IF: Fetched halt at 0x13.  ra=----, rb=----, valC = 0x0
+32 instructions executed
+Status = HLT
+Condition Codes: Z=1 S=0 O=0
+Changed Register State:
+%rax:	0x0000000000000000	0x0000abcdabcdabcd
+%rsp:	0x0000000000000000	0x0000000000000100
+%rdi:	0x0000000000000000	0x0000000000000038
+%r10:	0x0000000000000000	0x0000a000a000a000
+Changed Memory State:
+0x00f0:	0x0000000000000000	0x0000000000000055
+0x00f8:	0x0000000000000000	0x0000000000000013
+ISA Check Succeeds
+```
+为验证其正确性，用YIS运行一下asumi.yo：
+> $ ./../misc/yis ../y86-code/asumi.yo
+
+输出结果如下：
+```
+Stopped in 32 steps at PC = 0x13.  Status 'HLT', CC Z=1 S=0 O=0
+Changes to registers:
+%rax:	0x0000000000000000	0x0000abcdabcdabcd
+%rsp:	0x0000000000000000	0x0000000000000100
+%rdi:	0x0000000000000000	0x0000000000000038
+%r10:	0x0000000000000000	0x0000a000a000a000
+
+Changes to memory:
+0x00f0:	0x0000000000000000	0x0000000000000055
+0x00f8:	0x0000000000000000	0x0000000000000013
+```
+
+可见两者结果完全相同，因此自己修改后的SEQ成功实现了iaddq指令，但是还需进一步验证。
+> $ (cd ../y86-code; make testssim)
+
+注：圆括号表示不要真正切换目录。  
+输出如下：
+```
+../seq/ssim -t asum.yo > asum.seq
+../seq/ssim -t asumr.yo > asumr.seq
+../seq/ssim -t cjr.yo > cjr.seq
+../seq/ssim -t j-cc.yo > j-cc.seq
+../seq/ssim -t poptest.yo > poptest.seq
+../seq/ssim -t pushquestion.yo > pushquestion.seq
+../seq/ssim -t pushtest.yo > pushtest.seq
+../seq/ssim -t prog1.yo > prog1.seq
+../seq/ssim -t prog2.yo > prog2.seq
+../seq/ssim -t prog3.yo > prog3.seq
+../seq/ssim -t prog4.yo > prog4.seq
+../seq/ssim -t prog5.yo > prog5.seq
+../seq/ssim -t prog6.yo > prog6.seq
+../seq/ssim -t prog7.yo > prog7.seq
+../seq/ssim -t prog8.yo > prog8.seq
+../seq/ssim -t ret-hazard.yo > ret-hazard.seq
+grep "ISA Check" *.seq
+asum.seq:ISA Check Succeeds
+asumr.seq:ISA Check Succeeds
+cjr.seq:ISA Check Succeeds
+j-cc.seq:ISA Check Succeeds
+poptest.seq:ISA Check Succeeds
+prog1.seq:ISA Check Succeeds
+prog2.seq:ISA Check Succeeds
+prog3.seq:ISA Check Succeeds
+prog4.seq:ISA Check Succeeds
+prog5.seq:ISA Check Succeeds
+prog6.seq:ISA Check Succeeds
+prog7.seq:ISA Check Succeeds
+prog8.seq:ISA Check Succeeds
+pushquestion.seq:ISA Check Succeeds
+pushtest.seq:ISA Check Succeeds
+ret-hazard.seq:ISA Check Succeeds
+rm asum.seq asumr.seq cjr.seq j-cc.seq poptest.seq pushquestion.seq pushtest.seq prog1.seq prog2.seq prog3.seq prog4.seq prog5.seq prog6.seq prog7.seq prog8.seq ret-hazard.seq
+```
+可见y86-code下的程序测试都通过了，这只证明新的SEQ没有使原有的指令发生错误，还需进一步验证：  
+
+验证`leave`：  
+> $ (cd ../ptest; make SIM=../seq/ssim)
+
+输出如下：
+```
+./optest.pl -s ../seq/ssim 
+Simulating with ../seq/ssim
+  All 49 ISA Checks Succeed
+./jtest.pl -s ../seq/ssim 
+Simulating with ../seq/ssim
+  All 64 ISA Checks Succeed
+./ctest.pl -s ../seq/ssim 
+Simulating with ../seq/ssim
+  All 22 ISA Checks Succeed
+./htest.pl -s ../seq/ssim 
+Simulating with ../seq/ssim
+  All 600 ISA Checks Succeed
+```
+
+验证`iaddq`:
+> $ (cd ../ptest; make SIM=../seq/ssim TFLAGS=-i)
+
+输出如下：
+```
+./optest.pl -s ../seq/ssim -i
+Simulating with ../seq/ssim
+  All 58 ISA Checks Succeed
+./jtest.pl -s ../seq/ssim -i
+Simulating with ../seq/ssim
+  All 96 ISA Checks Succeed
+./ctest.pl -s ../seq/ssim -i
+Simulating with ../seq/ssim
+  All 22 ISA Checks Succeed
+./htest.pl -s ../seq/ssim -i
+Simulating with ../seq/ssim
+  All 756 ISA Checks Succeed
+
+```
+大功告成！
+
+## Part C
+
+

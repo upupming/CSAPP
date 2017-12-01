@@ -728,7 +728,8 @@ gcc -Wall -O2 -isystem /usr/include/tcl8.5 -I../misc -DHAS_GUI -o psim psim.c pi
 > ~/hitcis/lab5/sim/pipe$ ./psim -t ../y86-code/asumi.yo > out_my.txt
 
 <details>
-	<summary>将输出重定向至out_my.txt，其中结果如下(点击展开)：</summary>
+	<summary>将输出重定向至out_my.txt，其中结果如下(点击展开)：</summary>  
+    
 ```
 Y86-64 Processor: pipe-FULL.hcl
 137 bytes of code read
@@ -1328,6 +1329,7 @@ ISA Check Succeeds
 CPI: 44 cycles/32 instructions = 1.38
 
 ```
+
 </details>
 可见通过了ISA校对。  
 进一步运行`sim/y86-code`下的程序进行验证：
@@ -1335,7 +1337,8 @@ CPI: 44 cycles/32 instructions = 1.38
 
 
 <details>
-  <summary>输出如下(点击展开):</summary>
+  <summary>输出如下(点击展开):</summary>  
+ 
 ```
 ../pipe/psim -t asum.yo > asum.pipe
 ../pipe/psim -t asumr.yo > asumr.pipe
@@ -1373,6 +1376,7 @@ ret-hazard.pipe:ISA Check Succeeds
 rm asum.pipe asumr.pipe cjr.pipe j-cc.pipe poptest.pipe pushquestion.pipe pushtest.pipe prog1.pipe prog2.pipe prog3.pipe prog4.pipe prog5.pipe prog6.pipe prog7.pipe prog8.pipe ret-hazard.pipe
 
 ```
+
 </details>
 同样没有任何错误。
 进一步运行`sim/ptest`下的程序测试`leave`指令：
@@ -1496,8 +1500,9 @@ End:
 > $ ./psim -t sdriver.yo
 
 <details>
-  <summary>输出如下(点击展开):</summary>
-  ```
+  <summary>输出如下(点击展开):</summary>  
+
+```
   Y86-64 Processor: pipe-FULL.hcl
 362 bytes of code read
 
@@ -2332,7 +2337,8 @@ Changed Memory State:
 ISA Check Succeeds
 CPI: 63 cycles/48 instructions = 1.31
 
-  ```
+``` 
+ 
 </details>
 可见没有出错。  
 最后用63个元素的数组进行测试:
@@ -2372,7 +2378,8 @@ Changes to memory:
 > $ ./correctness.pl
 
 <details>
-<summary>输出为(点击展开)：</summary>
+<summary>输出为(点击展开)：</summary>  
+
 ```
 Simulating with instruction set simulator yis
 	ncopy
@@ -2447,6 +2454,7 @@ Simulating with instruction set simulator yis
 68/68 pass correctness test
 
 ```
+
 </details>
 测试通过。
 

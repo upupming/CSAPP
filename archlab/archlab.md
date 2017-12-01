@@ -407,7 +407,7 @@ stack:
 
 可见`I_IADDQ`被定义为十六进制值C。  
 
-接下来根据家庭作业4.51的结果对各阶段进行修改，先把4.51的答案再重复一遍：
+接下来根据家庭作业4.51的结果对各阶段进行修改，先把4.51的答案再重复一遍：  
 |阶段(Stage)	 |	iaddq V, rB|
 |---|---|
 |取指(Fetch)	 |	icode:ifun ← M1[PC] <br/> rA: rB ← M1[PC+1] <br/> valC ← M8[PC+2] <br/> valP ← PC+10|
@@ -653,5 +653,3 @@ Simulating with ../seq/ssim
 大功告成！
 
 ## Part C
-
-

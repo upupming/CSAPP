@@ -1,6 +1,6 @@
 # ArchLab
 ```
-			姓名：李一鸣 							学号：1160300625
+姓名：李一鸣 							学号：1160300625
 ```
 
 ## Handout Instructions
@@ -313,7 +313,7 @@ stack:
 > 0x01f0:	0x0000000000000000	0x000000000000005b  
 > 0x01f8:	0x0000000000000000	0x0000000000000013  
 
-
+可以看到，%rax最终为0xcba，结果正确。
 
 
 
@@ -394,8 +394,8 @@ stack:
 可以看到，dest内存部分已经被修改成了与src相同的值。
 
 ## Part B
-题目要求修改sim/seq下的`seq-full.hc`来实现课本中的iaddq指令，并在前面注释中写上自己的学号、姓名以及iaddq的计算过程。  
-在`seq-full.hc`中有下面的定义：
+题目要求修改sim/seq下的`seq-full.hcl`来实现课本中的iaddq指令，并在前面注释中写上自己的学号、姓名以及iaddq的计算过程。  
+在`seq-full.hcl`中有下面的定义：
 > \# Instruction code for iaddq instruction  
 > wordsig IIADDQ	'I_IADDQ'
 
@@ -409,7 +409,7 @@ stack:
 
 接下来根据家庭作业4.51的结果对各阶段进行修改，先把4.51的答案再重复一遍：  
 
-|阶段(Stage)	 |	iaddq V, rB|
+|阶段(Stage)	 |	指令iaddq V, rB|
 |---|---|
 |取指(Fetch)	 |	icode:ifun ← M1[PC] <br/> rA: rB ← M1[PC+1] <br/> valC ← M8[PC+2] <br/> valP ← PC+10|
 |译码(Decode)	 | valA ← R[rB] |
@@ -654,3 +654,78 @@ Simulating with ../seq/ssim
 大功告成！
 
 ## Part C
+在 sim/pipe目录下，有下列文件：
++ `nocopy.c`：C代码程序
++ `nocopy.ys`：用非流水线编写的Y86-64代码
++ `pipe-full.hcl`：加入了IIADDQ常量定义的PIPE的HCL实现代码
+
+要求是修改`nocopy.ys`和`pipe-full.hcl`以使程序运行尽量快，同时还有下列约束：
++ `nocopy.ys`要对任意任意类型的数组都能起作用。
++ `nocopy.ys`要能复制src到dest，并且返回%rax为正确的计数。
++ `nocopy.ys`汇编产生的`nocopy.yo`必须超过1000字节，用下面的脚本验证：
+	> unix> ./check-len.pl < ncopy.yo
++ `pipe-full.hcl`必须通过`../y86-code`和`../ptest`(不需用'-i'测试iaddq指令)中的测试。
++ 如果感兴趣，可以实现一下iaddq指令。
+
+读到这里，再看看`nocopy.ys`，其中有许多先用`irmovq`、再用`addq`来实现加立即数。  
+我就想，想要快那就必须加入`iaddq`指令。  
+
+### 修改`pipe-full.hcl`以加入iaddq指令
+1. 取指(Fetch)
++ PC的选择`f_pc`不需修改
++ 用来确定取指阶段icode:ifun的`f_icode`、`f_ifun`不需修改
++ `instr_valid`加入`IIADDQ`
++ 用来确定取指指令的状态码的`f_stat`不需修改
++ `need_regids`需要加入`IIADDQ`
++ iaddq指令有常数字，`need_valC`需要加入`IIADDQ`
++ 
+
+### 修改`nocopy.ys`
+```
+#/* $begin ncopy-ys */
+##################################################################
+# ncopy.ys - Copy a src block of len words to dst.
+# Return the number of positive words (>0) contained in src.
+#
+# 李一鸣			1160300625
+#
+# Describe how and why you modified the baseline code.
+#
+##################################################################
+# Do not modify this portion
+# Function prologue.
+# %rdi = src, %rsi = dst, %rdx = len
+ncopy:
+
+##################################################################
+# You can modify this portion
+	# Loop header
+	xorq %rax,%rax		# count = 0;
+	andq %rdx,%rdx		# len <= 0?
+	jle Done			# if so, goto Done:
+	irmovq $1, %r8		# constant 1
+	irmovq $8, %r9		# constant 8
+Loop:	
+	mrmovq (%rdi), %r10	# read val from src...
+	rmmovq %r10, (%rsi)	# ...and store it to dst
+	andq %r10, %r10		# val <= 0?
+	jle Npos		# if so, goto Npos:
+	addq %r8, %rax		# count++
+Npos:	
+	subq %r8, %rdx		# len--
+	addq %r9, %rdi		# src++
+	addq %r9, %rsi		# dst++
+	andq %rdx,%rdx		# len > 0?
+	jg Loop			# if so, goto Loop:
+##################################################################
+# Do not modify the following section of code
+# Function epilogue.
+Done:
+	ret
+##################################################################
+# Keep the following label at the end of your function
+End:
+#/* $end ncopy-ys */
+```
+
+

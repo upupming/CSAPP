@@ -1485,6 +1485,6 @@ End:
 > $ ./psim -g sdriver.yo
 
 结果如下图所示：  
-![pipe_gui](https://3.downloader.disk.yandex.ru/preview/01c6893b2ed9caae1ea8e55ebd3d1ce447ef990ddef54f400a81bd90311dfa83/inf/Z-4Nf28d8EwlA5TYNu8ju3-1ZfO-UBwEgUioE8AUdXynufDI2lh0g43IihrBb7pWOTtxdXW_vRndoARYFTo4_g%3D%3D?uid=0&filename=PIPE_GUI.JPG&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&tknv=v2&size=XXL&crop=0)
+![pipe_gui](https://4.downloader.disk.yandex.ru/preview/b29ab28d69d4e4c64c4a303f10c877cc0cf8179feda59c8d44095017aa7e6408/inf/Z-4Nf28d8EwlA5TYNu8juwe_DkLYi8ZYdYLKTpFTkM6a9V-XuMu-TDCFLS92Km-ASX6Xj-WUv8ntXP3kZWv22A%3D%3D?uid=0&filename=PIPE_GUI.JPG&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&tknv=v2&size=XXL&crop=0)
 若直接用
 

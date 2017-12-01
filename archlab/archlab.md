@@ -1420,17 +1420,21 @@ Simulating with ../pipe/psim
 ```
 ISA验证通过，至此PIPE的修改已经完成了测试。下一步就是修改`nocopy.ys`了。
 ### 用`iaddq`修改`nocopy.ys`
-修改后的代码如下：
+
+<details>
+<summary>修改后的代码如下(点击展开)：</summary>
+
 ```assembly
 #/* $begin ncopy-ys */
-##################################################################
+################################################################## 
 # ncopy.ys - Copy a src block of len words to dst.
 # Return the number of positive words (>0) contained in src.
 #
+# Include your name and ID here.
 # 李一鸣			1160300625
-#
 # Describe how and why you modified the baseline code.
-#
+# 1. use iaddq.
+# 2. unroll loop.
 ##################################################################
 # Do not modify this portion
 # Function prologue.
@@ -1440,22 +1444,70 @@ ncopy:
 ##################################################################
 # You can modify this portion
 	# Loop header
-	xorq %rax,%rax		# count = 0;
-	andq %rdx,%rdx		# len <= 0?
-	jle Done		# if so, goto Done:
-
-Loop:	
-	mrmovq (%rdi), %r10	# read val from src...
-	rmmovq %r10, (%rsi)	# ...and store it to dst
-	andq %r10, %r10		# val <= 0?
-	jle Npos		# if so, goto Npos:
-	iaddq $1, %rax		# count++
-Npos:
-	iaddq $-1, %rdx		# len--
-	iaddq $8, %rdi		# src++
-	iaddq $8, %rsi		# dst++
-	andq %rdx,%rdx		# len > 0?
-	jg Loop			# if so, goto Loop:
+		xorq %rax,%rax		# count = 0;
+		rrmovq %rdx, %rcx	# copy len
+        iaddq $-6, %rcx 	
+		jle Next2			# len <= 6
+Loop1:        				# len > 6
+        mrmovq (%rdi), %r8		# 0
+        mrmovq 8(%rdi), %r9		# 1
+        mrmovq 16(%rdi), %r10	# 2
+        mrmovq 24(%rdi), %r11	# 3
+        mrmovq 32(%rdi), %r12	# 4
+        mrmovq 40(%rdi), %r13	# 5
+        rmmovq %r8, (%rsi)		
+        rmmovq %r9, 8(%rsi)		
+        rmmovq %r10, 16(%rsi)	
+        rmmovq %r11, 24(%rsi)	
+        rmmovq %r12, 32(%rsi)
+        rmmovq %r13, 40(%rsi)
+ele1:   
+		andq %r8, %r8           # val <= 0?
+        jle ele2               	# if so, goto ele2:
+        iaddq $1, %rax          # count++, %rax         
+ele2:   
+		andq %r9, %r9          
+        jle ele3
+        iaddq $1, %rax
+ele3:   
+		andq %r10, %r10
+        jle ele4
+        iaddq $1, %rax
+ele4:   
+		andq %r11, %r11
+        jle ele5
+        iaddq $1, %rax
+ele5:   
+		andq %r12, %r12
+        jle ele6
+        iaddq $1, %rax
+ele6:   
+		andq %r13, %r13
+        jle Npos1
+        iaddq $1, %rax
+Npos1:  
+		iaddq $48, %rdi         # src++，关键优化，6次合一
+        iaddq $48, %rsi         # dst++
+        iaddq $-6, %rdx         # len--
+        iaddq $-6, %rcx         # (len-6)--
+        jg Loop1                # if %rcx>0, goto Loop1:
+		andq %rdx, %rdx
+		jmp test
+Next2:  
+		andq %rdx,%rdx          # len <= 0?
+        jle Done                # if so, goto Done:
+Loop3:	
+		mrmovq (%rdi), %rbx		# read val from src...
+		rmmovq %rbx, (%rsi)		# ...and store it to dst
+		andq %rbx, %rbx			# val <= 0?
+		jle Npos3				# if so, goto Npos3:
+		iaddq $1, %rax			# count++
+Npos3:	
+		iaddq $8, %rdi		# src++
+		iaddq $8, %rsi		# dst++
+		iaddq $-1, %rdx     # len--
+test:
+        jg Loop3			# if len > 0, goto Loop3:
 ##################################################################
 # Do not modify the following section of code
 # Function epilogue.
@@ -1466,7 +1518,10 @@ Done:
 End:
 #/* $end ncopy-ys */
 
+
 ```
+
+</details>
 汇编`ncopy.ys`：
 > ~/hitcis/lab5/sim/pipe$ ./../misc/yas ncopy.ys
 
@@ -2464,4 +2519,77 @@ Simulating with instruction set simulator yis
 输出结果同上，测试通过。  
 
 最后看一下CPE(circles per element)：
-> 
+> $ ./benchmark.pl  > score
+
+重定向至score结果如下：
+```
+	ncopy
+0	16
+1	29	29.00
+2	41	20.50
+3	50	16.67
+4	62	15.50
+5	71	14.20
+6	83	13.83
+7	70	10.00
+8	82	10.25
+9	91	10.11
+10	103	10.30
+11	112	10.18
+12	124	10.33
+13	108	8.31
+14	120	8.57
+15	129	8.60
+16	141	8.81
+17	150	8.82
+18	162	9.00
+19	146	7.68
+20	158	7.90
+21	167	7.95
+22	179	8.14
+23	188	8.17
+24	200	8.33
+25	184	7.36
+26	196	7.54
+27	205	7.59
+28	217	7.75
+29	226	7.79
+30	238	7.93
+31	222	7.16
+32	234	7.31
+33	243	7.36
+34	255	7.50
+35	264	7.54
+36	276	7.67
+37	260	7.03
+38	272	7.16
+39	281	7.21
+40	293	7.33
+41	302	7.37
+42	314	7.48
+43	298	6.93
+44	310	7.05
+45	319	7.09
+46	331	7.20
+47	340	7.23
+48	352	7.33
+49	336	6.86
+50	348	6.96
+51	357	7.00
+52	369	7.10
+53	378	7.13
+54	390	7.22
+55	374	6.80
+56	386	6.89
+57	395	6.93
+58	407	7.02
+59	416	7.05
+60	428	7.13
+61	412	6.75
+62	424	6.84
+63	433	6.87
+64	445	6.95
+Average CPE	8.74
+Score	35.1/60.0
+
+```

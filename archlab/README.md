@@ -607,7 +607,7 @@ Simulating with ../pipe/psim
 
 ```
 ISA验证通过，至此PIPE的修改已经完成了测试。下一步就是修改`nocopy.ys`了。
-### 用`iaddq`修改`nocopy.ys`
+### 加入`iaddq`修改、对循环展开以优化`nocopy.ys`
 
 修改后的代码在[这里](https://github.com/upupming/CSAPP/blob/master/archlab/sim/pipe/ncopy_8421_8.29.ys)。  
 其主要思想是分治，写这个代码需要不断修改，大概花了我一天的时间。  

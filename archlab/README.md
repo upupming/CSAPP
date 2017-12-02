@@ -670,7 +670,7 @@ Simulating with ../seq/ssim
 读到这里，再看看`nocopy.ys`，其中有多处先用`irmovq`、再用`addq`来实现加立即数。  
 我就想，想要快那就必须加入`iaddq`指令。  
 
-### 修改`pipe-full.hcl`以加入iaddq指令
+### C-1 修改`pipe-full.hcl`以加入iaddq指令
 1. 取指(Fetch)
 + PC的选择`f_pc`不需修改
 + 用来确定取指阶段icode:ifun的`f_icode`、`f_ifun`不需修改
@@ -709,7 +709,7 @@ iaddq指令只是对立即数和寄存器进行操作，不需要读写内存，
 5. 流水线寄存器(Pipeline Register Control)
 iaddq没有影响到气泡的处理，这部分不需修改
 
-### 生成PIPE并测试
+### C-2 生成PIPE并测试
 运行下面的命令(确保Makefile修改正确，参见Part A)：
 > ~/hitcis/lab5/sim/pipe$ make VERSION=full
 

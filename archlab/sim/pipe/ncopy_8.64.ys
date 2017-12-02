@@ -27,11 +27,9 @@ ncopy:
 		iaddq $4, %rcx		
 		jge	Loop2			# len >= 4
 		
-		iaddq $2, %rcx		
-		jge	Loop3			# len >= 2
+		iaddq $3, %rcx		
+		jge	Loop_rest		# len >= 1
 		
-		iaddq $1, %rcx 
-		jge Loop_rest		# len >= 1
 		
 		jmp Done			# len <=0
 		
@@ -45,7 +43,7 @@ Loop3:
         rmmovq %r9, 8(%rsi)		
 ele3_1:   
 		andq %r8, %r8           # val <= 0?
-        jle ele3_2              # if so, goto ele3_2:
+        jle ele3_2               	# if so, goto ele2_2:
         iaddq $1, %rax          # count++, %rax         
 ele3_2:   
 		andq %r9, %r9          
@@ -56,10 +54,9 @@ Npos3:
         iaddq $16, %rsi         # dst++
         iaddq $-2, %rdx         # len--
         iaddq $-2, %rcx         # (len-2)--
-        jge Loop3                # if len>=2, goto Loop3:
-		iaddq $1, %rcx
-		jge	Loop_rest			# len>=1
-		jmp Done
+        jg Loop3                # if %rcx>0, goto Loop:
+		andq %rdx, %rdx
+		jmp test
 #################################################################		
 
 		
@@ -76,7 +73,7 @@ Loop2:
         rmmovq %r11, 24(%rsi)	
 ele2_1:   
 		andq %r8, %r8           # val <= 0?
-        jle ele2_2              # if so, goto ele2_2:
+        jle ele2_2               	# if so, goto ele2_2:
         iaddq $1, %rax          # count++, %rax         
 ele2_2:   
 		andq %r9, %r9          
@@ -95,12 +92,9 @@ Npos2:
         iaddq $32, %rsi         # dst++
         iaddq $-4, %rdx         # len--
         iaddq $-4, %rcx         # (len-4)--
-        jge Loop2                # if len>=4, goto Loop2:
-		iaddq $2, %rcx			
-		jge Loop3				# len >=2
-		iaddq $1, %rcx			
-		jge Loop_rest			# len >=1
-		jmp Done
+        jg Loop2                # if %rcx>0, goto Loop2:
+		andq %rdx, %rdx
+		jmp test
 #################################################################		
 		
 ##################################################################
@@ -159,22 +153,25 @@ Npos1:
         iaddq $64, %rsi         # dst++
         iaddq $-8, %rdx         # len--
         iaddq $-8, %rcx         # (len-8)--
-        jge Loop1                # if len>=8, goto Loop1:
-		iaddq $4, %rcx
-		jge	Loop2				# len >=4
-		iaddq $2, %rcx			
-		jge Loop3				# len >=2
-		iaddq $1, %rcx
-		jge Loop_rest			# len >=1
-		jmp Done
+        jg Loop1                # if %rcx>0, goto Loop1:
+		andq %rdx, %rdx
+		jmp test
+
 #################################################################
-###########多出来的部分，1个元素
+###########多出来的部分
 Loop_rest:	
 		mrmovq (%rdi), %rbx		# read val from src...
 		rmmovq %rbx, (%rsi)		# ...and store it to dst
 		andq %rbx, %rbx			# val <= 0?
-		jle Done		# if so, goto Npos_reminder:
+		jle Npos_reminder		# if so, goto Npos_reminder:
 		iaddq $1, %rax			# count++
+Npos_reminder:	
+		iaddq $8, %rdi		# src++
+		iaddq $8, %rsi		# dst++
+		iaddq $-1, %rdx     # len--
+		
+test:
+        jg Loop_rest			# if len > 0, goto Loop_rest
 ##################################################################
 # Do not modify the following section of code
 # Function epilogue.

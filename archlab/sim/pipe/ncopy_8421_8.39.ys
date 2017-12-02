@@ -1,0 +1,174 @@
+#/* $begin ncopy-ys */
+################################################################## 
+# ncopy.ys - Copy a src block of len words to dst.
+# Return the number of positive words (>0) contained in src.
+#
+# Include your name and ID here.
+# 李一鸣			1160300625
+# Describe how and why you modified the baseline code.
+# 1. use iaddq.
+# 2. unroll loop.
+##################################################################
+# Do not modify this portion
+# Function prologue.
+# %rdi = src, %rsi = dst, %rdx = len
+ncopy:
+
+##################################################################
+# You can modify this portion
+	# Loop header
+		xorq %rax,%rax		# count = 0;
+
+		rrmovq %rdx, %rcx	# copy len
+judge8:
+		iaddq $-8, %rcx 	
+		jge Loop1			# len >= 8
+judge4:
+		iaddq $4, %rcx		
+		jge	Loop2			# len >= 4
+judge2:		
+		iaddq $2, %rcx		
+		jge	Loop3			# len >= 2
+judge1:		
+		iaddq $1, %rcx 
+		jge Loop_rest		# len >= 1
+		
+		jmp Done			# len <=0 
+		
+		
+##################################################################
+##################### for len >= 2，每2个元素进行一次循环
+Loop3:        				
+        mrmovq (%rdi), %r8		# 0
+        mrmovq 8(%rdi), %r9		# 1
+        rmmovq %r8, (%rsi)		
+        rmmovq %r9, 8(%rsi)		
+ele3_1:   
+		andq %r8, %r8           # val <= 0?
+        jle ele3_2              # if so, goto ele3_2:
+        iaddq $1, %rax          # count++, %rax         
+ele3_2:   
+		andq %r9, %r9          
+        jle Npos3
+        iaddq $1, %rax
+Npos3:  
+		iaddq $16, %rdi         # src++，关键优化，2次合一
+        iaddq $16, %rsi         # dst++
+        iaddq $-2, %rdx         # len--
+        iaddq $-2, %rcx         # (len-2)--
+        jge Loop3                # if len>=2, goto Loop3:
+		jmp judge1
+#################################################################		
+
+		
+##################################################################
+##################### for len >= 4，每4个元素进行一次循环
+Loop2:        				
+        mrmovq (%rdi), %r8		# 0
+        mrmovq 8(%rdi), %r9		# 1
+        mrmovq 16(%rdi), %r10	# 2
+        mrmovq 24(%rdi), %r11	# 3
+        rmmovq %r8, (%rsi)		
+        rmmovq %r9, 8(%rsi)		
+        rmmovq %r10, 16(%rsi)	
+        rmmovq %r11, 24(%rsi)	
+ele2_1:   
+		andq %r8, %r8           # val <= 0?
+        jle ele2_2              # if so, goto ele2_2:
+        iaddq $1, %rax          # count++, %rax         
+ele2_2:   
+		andq %r9, %r9          
+        jle ele2_3
+        iaddq $1, %rax
+ele2_3:   
+		andq %r10, %r10
+        jle ele2_4
+        iaddq $1, %rax
+ele2_4:   
+		andq %r11, %r11
+        jle Npos2
+        iaddq $1, %rax
+Npos2:  
+		iaddq $32, %rdi         # src++，关键优化，4次合一
+        iaddq $32, %rsi         # dst++
+        iaddq $-4, %rdx         # len--
+        iaddq $-4, %rcx         # (len-4)--
+        jge Loop2                # if len>=4, goto Loop2:
+		jmp judge2
+#################################################################		
+		
+##################################################################
+##################### for len >= 8，每8个元素进行一次循环
+Loop1:        				
+        mrmovq (%rdi), %r8		# 0
+        mrmovq 8(%rdi), %r9		# 1
+        mrmovq 16(%rdi), %r10	# 2
+        mrmovq 24(%rdi), %r11	# 3
+        mrmovq 32(%rdi), %r12	# 4
+        mrmovq 40(%rdi), %r13	# 5
+        mrmovq 48(%rdi), %r14	# 6
+        mrmovq 56(%rdi), %rbx	# 7
+        rmmovq %r8, (%rsi)		
+        rmmovq %r9, 8(%rsi)		
+        rmmovq %r10, 16(%rsi)	
+        rmmovq %r11, 24(%rsi)	
+        rmmovq %r12, 32(%rsi)
+        rmmovq %r13, 40(%rsi)
+        rmmovq %r14, 48(%rsi)
+        rmmovq %rbx, 56(%rsi)
+ele1:   
+		andq %r8, %r8           # val <= 0?
+        jle ele2               	# if so, goto ele2:
+        iaddq $1, %rax          # count++, %rax         
+ele2:   
+		andq %r9, %r9          
+        jle ele3
+        iaddq $1, %rax
+ele3:   
+		andq %r10, %r10
+        jle ele4
+        iaddq $1, %rax
+ele4:   
+		andq %r11, %r11
+        jle ele5
+        iaddq $1, %rax
+ele5:   
+		andq %r12, %r12
+        jle ele6
+        iaddq $1, %rax
+ele6:   
+		andq %r13, %r13
+        jle ele7
+        iaddq $1, %rax
+ele7:   
+		andq %r14, %r14
+        jle ele8
+        iaddq $1, %rax
+ele8:   
+		andq %rbx, %rbx
+        jle Npos1
+        iaddq $1, %rax
+Npos1:  
+		iaddq $64, %rdi         # src++，关键优化，8次合一
+        iaddq $64, %rsi         # dst++
+        iaddq $-8, %rdx         # len--
+        iaddq $-8, %rcx         # (len-8)--
+        jge Loop1                # if len>=8, goto Loop1
+		jmp judge4
+#################################################################
+###########多出来的部分，1个元素
+Loop_rest:	
+		mrmovq (%rdi), %rbx		# read val from src...
+		rmmovq %rbx, (%rsi)		# ...and store it to dst
+		andq %rbx, %rbx			# val <= 0?
+		jle Done				# if so, goto Done
+		iaddq $1, %rax			# count++
+##################################################################
+# Do not modify the following section of code
+# Function epilogue.
+Done:
+	ret
+##################################################################
+# Keep the following label at the end of your function
+End:
+#/* $end ncopy-ys */

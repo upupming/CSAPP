@@ -41,8 +41,7 @@ visit link
 
 - ebook-convert
 
-	sudo apt install calibre
-
+		sudo apt install calibre
 
 generate book
 

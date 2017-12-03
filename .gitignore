@@ -3,6 +3,6 @@ node_modules
 a.out
 main
 
-*.pdf
+#*.pdf
 *.epub
 *.mobi

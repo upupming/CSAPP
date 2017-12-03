@@ -6,7 +6,7 @@
 
 github: [upupming/CSAPP/chapter4](https://github.com/upupming/CSAPP/tree/master/chapter4)
 
-All soluctions and lab report is in Chinese.
+All solutions and lab reports are in Chinese.
 
 ## serve locally
 

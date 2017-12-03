@@ -1,0 +1,8 @@
+{
+  "plugins": [ "include", "disqus", "katex" ],
+  "pluginsConfig": {
+    "disqus": {
+      "shortName": "CSAPP-chapter4"
+    }
+  }
+}

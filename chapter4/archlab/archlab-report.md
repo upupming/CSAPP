@@ -645,7 +645,7 @@ ISA验证通过，至此PIPE的修改已经完成了测试。下一步就是修�
 > $ ./psim -g sdriver.yo
 
 结果如下图所示：  
-![pipe_gui](https://4.downloader.disk.yandex.ru/disk/e109485d4e6c9256c242d52d52cd4ce633e7d4f657730baff5d2e55927a1ea2b/5a219533/Z-4Nf28d8EwlA5TYNu8juwBMcI7XENaOzWi5qAFS3GvblEwRNVY_4GnfstvIbUh-Yq0F0syObpCoNmpDFVpQ1w%3D%3D?uid=0&filename=PIPE_GUI.JPG&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&fsize=233465&hid=01ac115ca1d865c51ad7a4334bc9507b&media_type=image&tknv=v2&etag=a233d0c914e535d786c1f7998ab6b256)
+![pipe_gui](./PIPE_GUI.JPG)
   
 若直接用tty模式：
 > $ ./psim -t sdriver.yo

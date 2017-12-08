@@ -1,8 +1,32 @@
 {
-  "plugins": [ "include", "disqus", "katex" ],
+  "gitbook": "",
+  "title": "",
+  "description": "",
+  "language": "zh-hans",
+
   "pluginsConfig": {
-    "disqus": {
-      "shortName": "CSAPP-chapter4"
+    "fontSettings": {
+      "theme": "white",
+      "family": "SimSun",
+      "style":"Regular",
+      "size": 1
+    },
+    "plugins": [
+      "yahei",
+      "katex",
+      "-search"
+    ]
+  },
+  "pdf": {
+    "pageNumbers": true,
+    "fontFamily": "SimSun", 
+    "fontSize": 10,
+    "paperSize": "a4",
+    "margin": {
+      "right": 62,
+      "left": 62,
+      "top": 56,
+      "bottom": 56
     }
   }
 }

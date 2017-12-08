@@ -26,8 +26,8 @@
         "fontSize": 10,
         "paperSize": "a4",
         "margin": {
-          "right": 62,
-          "left": 62,
+          "right": 20,
+          "left": 20,
           "top": 56,
           "bottom": 56
         }

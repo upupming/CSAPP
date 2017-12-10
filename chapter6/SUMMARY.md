@@ -9,3 +9,5 @@
 * [6.38](./6.38.md)
 * [6.40](./6.40.md)
 * [6.44](./6.44.md)
+
+* [cachelab](./cachelab/cachelab-handout/cachelab-report.md)

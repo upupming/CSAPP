@@ -16,9 +16,9 @@ void inner4_6_1a(vec_ptr u, vec_ptr v, data_t *dest){
              udata[i] * vdata[i] +
              udata[i+1] * vdata[i+1] +
              udata[i+2] * vdata[i+2] +
-             udata[i+3] * vdata[i+2] +
-             udata[i+4] * vdata[i+3] +
-             udata[i+5] * vdata[i+4]
+             udata[i+3] * vdata[i+3] +
+             udata[i+4] * vdata[i+4] +
+             udata[i+5] * vdata[i+5]
             );
     }
 

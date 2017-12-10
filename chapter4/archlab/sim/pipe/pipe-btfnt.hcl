@@ -143,7 +143,7 @@ word f_pc = [
 	M_icode == IJXX && M_ifun != UNCOND && M_valE < M_valA && !M_Cnd : M_valA;
 	
 	# 2. forward not-taken error
-+	M_icode == IJXX && M_ifun != UNCOND && M_valE >= M_valA && M_Cnd : M_valE;
+	M_icode == IJXX && M_ifun != UNCOND && M_valE >= M_valA && M_Cnd : M_valE;
 	
 	# Completion of RET instruction
 	W_icode == IRET : W_valM;

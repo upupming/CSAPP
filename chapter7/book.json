@@ -1,0 +1,37 @@
+{
+  "gitbook": "",
+  "title": "",
+  "description": "",
+  "language": "zh-hans",
+	
+    "plugins": [
+      "include",
+      "yahei",
+      "katex",
+      "-search"
+    ],
+
+    "pluginsConfig": {
+        "fontSettings": {
+          "theme": "white",
+          "family": "SimSun",
+          "style":"Regular",
+          "size": 1
+        }
+    },
+    
+    "pdf": {
+        "pageNumbers": true,
+        "fontFamily": "SimSun",
+        "fontSize": 10,
+        "paperSize": "a4",
+        "margin": {
+          "right": 20,
+          "left": 20,
+          "top": 56,
+          "bottom": 56
+        }
+    }
+}
+
+

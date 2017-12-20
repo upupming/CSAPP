@@ -1,0 +1,94 @@
+/*
+ * 8.20 myls.c
+ * 李一鸣
+ */
+#include <stdio.h>
+#include <stdlib.h> // exit
+#include <string.h> // strerror
+#include <errno.h> // errno
+#include <sys/types.h> // opendir
+#include <dirent.h> // opendir readdir
+
+int cols;
+
+void ls_dir(char *cmd, DIR *dir){
+    struct dirent *file;
+    int offset=0;
+    while((file=readdir(dir))!=NULL){
+        if(file->d_reclen + offset >= cols){
+            offset = 0;
+            printf("\n");
+        }
+        offset += file->d_reclen;
+        printf("%s ", file->d_name);
+    }
+    printf("\n");
+}
+
+void ls_error(char *cmd, char *msg){
+    fprintf(stderr, "%s: %s: %s\n", cmd, msg, strerror(errno));
+}
+
+int main(int argc, char **argv, char **envp){
+    char msg[80];
+    DIR *dir;
+
+    char *env_cols;
+
+    char **p = envp;
+    while(p!=NULL)
+        puts(*p++);
+
+    if((env_cols=getenv("COLUMNS"))==NULL){
+        printf("set 80\n");
+        cols = 80;
+    }
+    else 
+        cols = atoi(env_cols);
+
+    if(argc==1){
+        char *current = getenv("PWD");
+        if((dir=opendir(current))==NULL){
+             sprintf(msg, "cannot access '%s'", current);
+             ls_error(argv[0], msg);
+        }
+        else
+            ls_dir(argv[0], dir);
+    }   
+    else if(argc==2){
+        if((dir=opendir(argv[1]))==NULL){
+             sprintf(msg, "cannot access '%s'", argv[1]);
+             ls_error(argv[0], msg);
+        }
+        else
+            ls_dir(argv[0], dir);
+    }
+    else{
+        int i, j=0;
+        char *dirnames[argc];
+        DIR *dirs[argc];
+        for(i=1; i<argc; i++){
+            if((dirs[j]=opendir(argv[i]))==NULL){
+                sprintf(msg, "cannot access '%s'", argv[i]);
+                ls_error(argv[0], msg);
+            }
+            else{
+                dirnames[j] = argv[i];
+                j++;
+            }
+        }
+
+        if(j==0) exit(0);
+        if(j==1) ls_dir(argv[0], dirs[0]);
+        else{
+            int k;
+            for(k=0; k<j; k++){
+                printf("%s:\n", dirnames[k]);
+                ls_dir(argv[0], dirs[k]);
+            }
+        }
+    }
+
+    return 0;
+
+}

@@ -257,6 +257,7 @@ jt:
 
 ## 4.51
 只把iaadq的各阶段计算写一下：
+
 |  阶段|                   iaddq V, rB|
 |------|------------------------------|
 |  取指|icode:ifun ← M<sub>1</sub>[PC]<br> rA:rB ← M<sub>1</sub>[PC+1]<br> valC ← M<sub>8</sub>[PC+2]<br> valP ← PC+10|

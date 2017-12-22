@@ -257,14 +257,15 @@ jt:
 
 ## 4.51
 只把iaadq的各阶段计算写一下：
-|阶段(Stage)|	指令iaddq V, rB |
-|---|---|
-|取指(Fetch)|	icode:ifun ← M1[PC] <br/> rA: rB ← M1[PC+1] <br/> valC ← M8[PC+2] <br/> valP ← PC+10 |
-|译码(Decode)|	valA ← R[rB]|
-|执行(Execute)	|valE ← valA+valC|
-|访存(Memory)	||
-|写回(Write Back)|	R[rB] ← valE|
-|更新PC(PC Update)|	PC ← valP|  
+
+|  阶段|                   iaddq V, rB|
+|------|------------------------------|
+|  取指|icode:ifun ← M<sub>1</sub>[PC]<br> rA:rB ← M<sub>1</sub>[PC+1]<br> valC ← M<sub>8</sub>[PC+2]<br> valP ← PC+10|
+|  译码|valB ← R[rB]    |
+|  执行|valE ← valB+valC<br> Set CC|
+|  访存|                |
+|  写回|R[rB] ← valE    |
+|更新PC|PC ← valP       |
 
 ## 4.52
 SEQ的iaddq指令见实验报告《Archlab》中的[Part B](https://github.com/upupming/CSAPP/tree/master/archlab#b-1-修改seq-fullhcl以加入iaddq指令)。  

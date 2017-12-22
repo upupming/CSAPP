@@ -7,7 +7,7 @@ YACC=bison
 LEXLIB = -lfl
 YAS=./yas
 
-all: yis yas hcl2c mux4
+all: yis yas hcl2c hcl2v mux4
 
 # These are implicit rules for making .yo files from .ys files.
 # E.g., make sum.yo
@@ -45,8 +45,10 @@ mux4: mux4.hcl hcl2c
 
 hcl2c: hcl.tab.c lex.yy.c node.c outgen.c
 	$(CC) $(LCFLAGS) node.c lex.yy.c hcl.tab.c outgen.c -o hcl2c
+hcl2v: hcl.tab.c lex.yy.c node.c outgen.c
+	$(CC) $(LCFLAGS) -DVLOG node.c lex.yy.c hcl.tab.c outgen.c -o hcl2v
 hcl2u: hcl.tab.c lex.yy.c node.c outgen.c
-	$(CC) $(LCFLAGS) -DUCLID node.c lex.yy.c hcl.tab.c outgen.c -o hcl2u
+	$(CC) $(LCFLAGS) -DUCLID node.c lex.yy.c hcl.tab.c outgen.c -o hcl2v
 
 lex.yy.c: hcl.lex
 	$(LEX) hcl.lex
@@ -55,7 +57,7 @@ hcl.tab.c: hcl.y
 	$(YACC) -d hcl.y
 
 clean:
-	rm -f *.o *.yo *.exe yis yas hcl2c mux4 *~ core.* 
+	rm -f *.o *.yo *.exe yis yas hcl2c hcl2v mux4 *~ core.* 
 	rm -f hcl.tab.c hcl.tab.h lex.yy.c yas-grammar.c
 
 

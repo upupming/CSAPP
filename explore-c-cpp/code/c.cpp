@@ -10,6 +10,8 @@ using namespace std;
 
 #define NUM 20
 
+void parting(){}
+
 struct st{
 	char name[20];
 	unsigned age;
@@ -148,9 +150,9 @@ void dataTypes(){
          << setprecision(6) << v_float << " " << setprecision(15) << v_double << " " << endl;
 
     // 1.2.2 寄存器变量
-    register int  r_int;
-    register char r_char;
-    register int* r_p;
+    register int  r_int = -1;
+    register char r_char = 0;
+    r_int = r_int + r_char;
 
     // 1.2.3 数组
     int a[5] = {1,2, 3, 4, 5};
@@ -159,15 +161,19 @@ void dataTypes(){
                   3, 4, 5, 6,
                   4 };
     vector<int> v_a(5);
-
+    parting();// 用来分割汇编代码
     // 1.2.4 枚举
     day_t day = Monday;
-
+    parting();
     // 1.2.5 共用体
     typedef union{
         bool single;
         char spouse[20];
     }man_t;
+    parting();
+    // 结构体
+    struct st yiMing;
+    printst(yiMing);
 
     // 1.2.6 指针、引用
     printf("\n交换之前： b[2][3] = %d, b[3][2] = %d\n", b[2][3], b[3][2]);
@@ -177,30 +183,20 @@ void dataTypes(){
     printf("引用交换函数之后： b[2][3] = %d, b[3][2] = %d\n", b[2][3], b[3][2]);
 }
 int main(){
-	char string[NUM];
-	char ca = '1';
-	char strin[20] = { '1' };
-	bool isBoy = true;
-	int intg = S,a=-1,b=0;
-	float f = 1.1;
-	double d = 1.2;
+    int a = 1, b = 0;
 
-	hit_st hitSt;
+    printf("下面测试分支：\n");
     // 分支
     branch(a, b);
+    printf("\n下面测试循环：\n");
     // 循环
     loop();
+    printf("\n下面测试数据类型：\n");
     // 数据类型
     dataTypes();
-
-	S=sum(a, b);
-	strcpy(ics_me.name,"李一鸣");
-	ics_me.id = 1160300625;
-	ics_me.age = 18;
-
-	printst(ics_me);
-
-	hitSt.sayhello();
+    // 全局变量
+    S = 2;
+    ics_me.age = 0;
 }
 
 int sum(int a, int b){

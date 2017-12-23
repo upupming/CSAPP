@@ -197,6 +197,11 @@ int main(){
     // 全局变量
     S = 2;
     ics_me.age = 0;
+    
+    parting();
+    // 类成员函数
+    hit_st yiMing;
+    yiMing.sayhello();
 }
 
 int sum(int a, int b){

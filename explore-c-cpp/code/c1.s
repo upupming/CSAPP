@@ -186,8 +186,8 @@ Disassembly of section .text:
   400f49:	and    $0xfffffffffffffff0,%rsp
   400f4d:	push   %rax
   400f4e:	push   %rsp
-  400f4f:	mov    $0x401f80,%r8
-  400f56:	mov    $0x401f10,%rcx
+  400f4f:	mov    $0x402060,%r8
+  400f56:	mov    $0x401ff0,%rcx
   400f5d:	mov    $0x401823,%rdi
   400f64:	callq  400e00 <__libc_start_main@plt>
   400f69:	hlt    
@@ -278,7 +278,7 @@ Disassembly of section .text:
   401054:	mov    -0x8(%rbp),%rax
   401058:	mov    0x18(%rax),%eax
   40105b:	mov    %eax,%esi
-  40105d:	mov    $0x401f98,%edi
+  40105d:	mov    $0x4020a5,%edi
   401062:	mov    $0x0,%eax
   401067:	callq  400d70 <printf@plt>
   40106c:	nop
@@ -293,44 +293,44 @@ Disassembly of section .text:
   40107a:	mov    %esi,-0x18(%rbp)
   40107d:	cmpl   $0x0,-0x14(%rbp)
   401081:	je     40108d <_Z6branchii+0x1e>
-  401083:	mov    $0x401fb0,%edi
+  401083:	mov    $0x4020bd,%edi
   401088:	callq  400db0 <puts@plt>
   40108d:	cmpl   $0x0,-0x18(%rbp)
   401091:	jne    40109f <_Z6branchii+0x30>
-  401093:	mov    $0x401fbe,%edi
+  401093:	mov    $0x4020cb,%edi
   401098:	callq  400db0 <puts@plt>
   40109d:	jmp    4010a9 <_Z6branchii+0x3a>
-  40109f:	mov    $0x401fc9,%edi
+  40109f:	mov    $0x4020d6,%edi
   4010a4:	callq  400db0 <puts@plt>
   4010a9:	movl   $0x2,-0x4(%rbp)
   4010b0:	mov    -0x4(%rbp),%eax
   4010b3:	cmp    $0x6,%eax
   4010b6:	ja     401118 <_Z6branchii+0xa9>
   4010b8:	mov    %eax,%eax
-  4010ba:	mov    0x402028(,%rax,8),%rax
+  4010ba:	mov    0x402130(,%rax,8),%rax
   4010c2:	jmpq   *%rax
-  4010c4:	mov    $0x401fd7,%edi
+  4010c4:	mov    $0x4020e4,%edi
   4010c9:	callq  400db0 <puts@plt>
   4010ce:	jmp    401123 <_Z6branchii+0xb4>
-  4010d0:	mov    $0x401fde,%edi
+  4010d0:	mov    $0x4020eb,%edi
   4010d5:	callq  400db0 <puts@plt>
   4010da:	jmp    401123 <_Z6branchii+0xb4>
-  4010dc:	mov    $0x401fe6,%edi
+  4010dc:	mov    $0x4020f3,%edi
   4010e1:	callq  400db0 <puts@plt>
   4010e6:	jmp    401123 <_Z6branchii+0xb4>
-  4010e8:	mov    $0x401ff0,%edi
+  4010e8:	mov    $0x4020fd,%edi
   4010ed:	callq  400db0 <puts@plt>
   4010f2:	jmp    401123 <_Z6branchii+0xb4>
-  4010f4:	mov    $0x401ff9,%edi
+  4010f4:	mov    $0x402106,%edi
   4010f9:	callq  400db0 <puts@plt>
   4010fe:	jmp    401123 <_Z6branchii+0xb4>
-  401100:	mov    $0x402000,%edi
+  401100:	mov    $0x40210d,%edi
   401105:	callq  400db0 <puts@plt>
   40110a:	jmp    401123 <_Z6branchii+0xb4>
-  40110c:	mov    $0x402009,%edi
+  40110c:	mov    $0x402116,%edi
   401111:	callq  400db0 <puts@plt>
   401116:	jmp    401123 <_Z6branchii+0xb4>
-  401118:	mov    $0x402010,%edi
+  401118:	mov    $0x40211d,%edi
   40111d:	callq  400db0 <puts@plt>
   401122:	nop
   401123:	nop
@@ -350,14 +350,14 @@ Disassembly of section .text:
   401149:	mov    %eax,-0x4(%rbp)
   40114c:	mov    -0x8(%rbp),%eax
   40114f:	mov    %eax,%esi
-  401151:	mov    $0x402060,%edi
+  401151:	mov    $0x402168,%edi
   401156:	mov    $0x0,%eax
   40115b:	callq  400d70 <printf@plt>
   401160:	subl   $0x1,-0x8(%rbp)
   401164:	jmp    40113c <_Z4loopv+0x16>
   401166:	mov    -0x4(%rbp),%eax
   401169:	mov    %eax,%esi
-  40116b:	mov    $0x402066,%edi
+  40116b:	mov    $0x40216e,%edi
   401170:	mov    $0x0,%eax
   401175:	callq  400d70 <printf@plt>
   40117a:	movl   $0x2,-0x8(%rbp)
@@ -369,7 +369,7 @@ Disassembly of section .text:
   401199:	mov    %eax,-0x4(%rbp)
   40119c:	mov    -0x8(%rbp),%eax
   40119f:	mov    %eax,%esi
-  4011a1:	mov    $0x40206e,%edi
+  4011a1:	mov    $0x402176,%edi
   4011a6:	mov    $0x0,%eax
   4011ab:	callq  400d70 <printf@plt>
   4011b0:	addl   $0x1,-0x8(%rbp)
@@ -378,7 +378,7 @@ Disassembly of section .text:
   4011ba:	jmp    401192 <_Z4loopv+0x6c>
   4011bc:	mov    -0x4(%rbp),%eax
   4011bf:	mov    %eax,%esi
-  4011c1:	mov    $0x402074,%edi
+  4011c1:	mov    $0x40217c,%edi
   4011c6:	mov    $0x0,%eax
   4011cb:	callq  400d70 <printf@plt>
   4011d0:	movl   $0x1,-0x4(%rbp)
@@ -390,7 +390,7 @@ Disassembly of section .text:
   4011eb:	mov    %eax,-0x4(%rbp)
   4011ee:	mov    -0x8(%rbp),%eax
   4011f1:	mov    %eax,%esi
-  4011f3:	mov    $0x402060,%edi
+  4011f3:	mov    $0x402168,%edi
   4011f8:	mov    $0x0,%eax
   4011fd:	callq  400d70 <printf@plt>
   401202:	addl   $0x1,-0x8(%rbp)
@@ -400,7 +400,7 @@ Disassembly of section .text:
   40120f:	mov    %eax,%edx
   401211:	mov    -0x8(%rbp),%eax
   401214:	mov    %eax,%esi
-  401216:	mov    $0x40207b,%edi
+  401216:	mov    $0x402183,%edi
   40121b:	mov    $0x0,%eax
   401220:	callq  400d70 <printf@plt>
   401225:	nop
@@ -476,9 +476,9 @@ Disassembly of section .text:
   401336:	mov    %rax,-0xf8(%rbp)
   40133d:	movabs $0x786910a88,%rax
   401347:	mov    %rax,-0xf0(%rbp)
-  40134e:	movss  0xe1e(%rip),%xmm0        # 402174 <_IO_stdin_used+0x1e4>
+  40134e:	movss  0xf26(%rip),%xmm0        # 40227c <_IO_stdin_used+0x20c>
   401356:	movss  %xmm0,-0x120(%rbp)
-  40135e:	movsd  0xe12(%rip),%xmm0        # 402178 <_IO_stdin_used+0x1e8>
+  40135e:	movsd  0xf1a(%rip),%xmm0        # 402280 <_IO_stdin_used+0x210>
   401366:	movsd  %xmm0,-0xe8(%rbp)
   40136e:	movzbl -0x13b(%rbp),%ebx
   401375:	mov    $0x400ee0,%esi
@@ -494,10 +494,10 @@ Disassembly of section .text:
   4013a0:	mov    %rax,%rdi
   4013a3:	callq  400ec0 <_ZNSolsEPFRSoS_E@plt>
   4013a8:	mov    $0xf,%edi
-  4013ad:	callq  4018f8 <_ZSt12setprecisioni>
+  4013ad:	callq  401966 <_ZSt12setprecisioni>
   4013b2:	mov    %eax,%r14d
   4013b5:	mov    $0x6,%edi
-  4013ba:	callq  4018f8 <_ZSt12setprecisioni>
+  4013ba:	callq  401966 <_ZSt12setprecisioni>
   4013bf:	mov    %eax,%r15d
   4013c2:	movzwl -0x136(%rbp),%ebx
   4013c9:	movswl -0x138(%rbp),%r12d
@@ -506,7 +506,7 @@ Disassembly of section .text:
   4013e0:	mov    %eax,%esi
   4013e2:	mov    $0x603120,%edi
   4013e7:	callq  400e30 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c@plt>
-  4013ec:	mov    $0x402084,%esi
+  4013ec:	mov    $0x40218c,%esi
   4013f1:	mov    %rax,%rdi
   4013f4:	callq  400e50 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
   4013f9:	mov    %r13d,%esi
@@ -521,13 +521,13 @@ Disassembly of section .text:
   40141e:	mov    %r12d,%esi
   401421:	mov    %rax,%rdi
   401424:	callq  400df0 <_ZNSolsEs@plt>
-  401429:	mov    $0x402084,%esi
+  401429:	mov    $0x40218c,%esi
   40142e:	mov    %rax,%rdi
   401431:	callq  400e50 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
   401436:	mov    %ebx,%esi
   401438:	mov    %rax,%rdi
   40143b:	callq  400ef0 <_ZNSolsEt@plt>
-  401440:	mov    $0x402084,%esi
+  401440:	mov    $0x40218c,%esi
   401445:	mov    %rax,%rdi
   401448:	callq  400e50 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
   40144d:	mov    %rax,%rdx
@@ -535,7 +535,7 @@ Disassembly of section .text:
   401456:	mov    %eax,%esi
   401458:	mov    %rdx,%rdi
   40145b:	callq  400d80 <_ZNSolsEi@plt>
-  401460:	mov    $0x402084,%esi
+  401460:	mov    $0x40218c,%esi
   401465:	mov    %rax,%rdi
   401468:	callq  400e50 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
   40146d:	mov    %rax,%rdx
@@ -543,7 +543,7 @@ Disassembly of section .text:
   401476:	mov    %eax,%esi
   401478:	mov    %rdx,%rdi
   40147b:	callq  400e80 <_ZNSolsEj@plt>
-  401480:	mov    $0x402084,%esi
+  401480:	mov    $0x40218c,%esi
   401485:	mov    %rax,%rdi
   401488:	callq  400e50 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
   40148d:	mov    %rax,%rdx
@@ -551,7 +551,7 @@ Disassembly of section .text:
   401497:	mov    %rax,%rsi
   40149a:	mov    %rdx,%rdi
   40149d:	callq  400d60 <_ZNSolsEl@plt>
-  4014a2:	mov    $0x402084,%esi
+  4014a2:	mov    $0x40218c,%esi
   4014a7:	mov    %rax,%rdi
   4014aa:	callq  400e50 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
   4014af:	mov    %rax,%rdx
@@ -559,7 +559,7 @@ Disassembly of section .text:
   4014b9:	mov    %rax,%rsi
   4014bc:	mov    %rdx,%rdi
   4014bf:	callq  400e60 <_ZNSolsEm@plt>
-  4014c4:	mov    $0x402084,%esi
+  4014c4:	mov    $0x40218c,%esi
   4014c9:	mov    %rax,%rdi
   4014cc:	callq  400e50 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
   4014d1:	mov    %rax,%rdx
@@ -567,7 +567,7 @@ Disassembly of section .text:
   4014db:	mov    %rax,%rsi
   4014de:	mov    %rdx,%rdi
   4014e1:	callq  400eb0 <_ZNSolsEx@plt>
-  4014e6:	mov    $0x402084,%esi
+  4014e6:	mov    $0x40218c,%esi
   4014eb:	mov    %rax,%rdi
   4014ee:	callq  400e50 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
   4014f3:	mov    %rax,%rdx
@@ -575,7 +575,7 @@ Disassembly of section .text:
   4014fd:	mov    %rax,%rsi
   401500:	mov    %rdx,%rdi
   401503:	callq  400da0 <_ZNSolsEy@plt>
-  401508:	mov    $0x402084,%esi
+  401508:	mov    $0x40218c,%esi
   40150d:	mov    %rax,%rdi
   401510:	callq  400e50 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
   401515:	mov    %rax,%rdx
@@ -583,7 +583,7 @@ Disassembly of section .text:
   40151e:	mov    %eax,%esi
   401520:	mov    %rdx,%rdi
   401523:	callq  400d80 <_ZNSolsEi@plt>
-  401528:	mov    $0x402084,%esi
+  401528:	mov    $0x40218c,%esi
   40152d:	mov    %rax,%rdi
   401530:	callq  400e50 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
   401535:	mov    %rax,%rdx
@@ -591,7 +591,7 @@ Disassembly of section .text:
   40153e:	mov    %eax,%esi
   401540:	mov    %rdx,%rdi
   401543:	callq  400e80 <_ZNSolsEj@plt>
-  401548:	mov    $0x402084,%esi
+  401548:	mov    $0x40218c,%esi
   40154d:	mov    %rax,%rdi
   401550:	callq  400e50 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
   401555:	mov    %rax,%rdx
@@ -599,7 +599,7 @@ Disassembly of section .text:
   40155f:	mov    %rax,%rsi
   401562:	mov    %rdx,%rdi
   401565:	callq  400d60 <_ZNSolsEl@plt>
-  40156a:	mov    $0x402084,%esi
+  40156a:	mov    $0x40218c,%esi
   40156f:	mov    %rax,%rdi
   401572:	callq  400e50 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
   401577:	mov    %rax,%rdx
@@ -622,7 +622,7 @@ Disassembly of section .text:
   4015c0:	movss  -0x148(%rbp),%xmm0
   4015c8:	mov    %rdx,%rdi
   4015cb:	callq  400ea0 <_ZNSolsEf@plt>
-  4015d0:	mov    $0x402084,%esi
+  4015d0:	mov    $0x40218c,%esi
   4015d5:	mov    %rax,%rdi
   4015d8:	callq  400e50 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
   4015dd:	mov    %r14d,%esi
@@ -634,7 +634,7 @@ Disassembly of section .text:
   4015f9:	movsd  -0x148(%rbp),%xmm0
   401601:	mov    %rdx,%rdi
   401604:	callq  400d50 <_ZNSolsEd@plt>
-  401609:	mov    $0x402084,%esi
+  401609:	mov    $0x40218c,%esi
   40160e:	mov    %rax,%rdi
   401611:	callq  400e50 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt>
   401616:	mov    $0x400ee0,%esi
@@ -665,17 +665,17 @@ Disassembly of section .text:
   4016bd:	movl   $0x4,-0x50(%rbp)
   4016c4:	lea    -0x13c(%rbp),%rax
   4016cb:	mov    %rax,%rdi
-  4016ce:	callq  401904 <_ZNSaIiEC1Ev>
+  4016ce:	callq  4019e8 <_ZNSaIiEC1Ev>
   4016d3:	movl   $0x0,-0x134(%rbp)
   4016dd:	lea    -0x13c(%rbp),%rcx
   4016e4:	lea    -0x134(%rbp),%rdx
   4016eb:	lea    -0xe0(%rbp),%rax
   4016f2:	mov    $0x5,%esi
   4016f7:	mov    %rax,%rdi
-  4016fa:	callq  40193c <_ZNSt6vectorIiSaIiEEC1EmRKiRKS0_>
+  4016fa:	callq  401a20 <_ZNSt6vectorIiSaIiEEC1EmRKiRKS0_>
   4016ff:	lea    -0x13c(%rbp),%rax
   401706:	mov    %rax,%rdi
-  401709:	callq  401920 <_ZNSaIiED1Ev>
+  401709:	callq  401a04 <_ZNSaIiED1Ev>
   40170e:	callq  401036 <_Z7partingv>
   401713:	movl   $0x0,-0x11c(%rbp)
   40171d:	callq  401036 <_Z7partingv>
@@ -686,7 +686,7 @@ Disassembly of section .text:
   401736:	mov    -0x48(%rbp),%edx
   401739:	mov    -0x54(%rbp),%eax
   40173c:	mov    %eax,%esi
-  40173e:	mov    $0x402088,%edi
+  40173e:	mov    $0x402190,%edi
   401743:	mov    $0x0,%eax
   401748:	callq  400d70 <printf@plt>
   40174d:	lea    -0x80(%rbp),%rax
@@ -699,7 +699,7 @@ Disassembly of section .text:
   401768:	mov    -0x48(%rbp),%edx
   40176b:	mov    -0x54(%rbp),%eax
   40176e:	mov    %eax,%esi
-  401770:	mov    $0x4020b8,%edi
+  401770:	mov    $0x4021c0,%edi
   401775:	mov    $0x0,%eax
   40177a:	callq  400d70 <printf@plt>
   40177f:	lea    -0x80(%rbp),%rax
@@ -712,12 +712,12 @@ Disassembly of section .text:
   40179a:	mov    -0x48(%rbp),%edx
   40179d:	mov    -0x54(%rbp),%eax
   4017a0:	mov    %eax,%esi
-  4017a2:	mov    $0x4020f0,%edi
+  4017a2:	mov    $0x4021f8,%edi
   4017a7:	mov    $0x0,%eax
   4017ac:	callq  400d70 <printf@plt>
   4017b1:	lea    -0xe0(%rbp),%rax
   4017b8:	mov    %rax,%rdi
-  4017bb:	callq  4019a6 <_ZNSt6vectorIiSaIiEED1Ev>
+  4017bb:	callq  401a8a <_ZNSt6vectorIiSaIiEED1Ev>
   4017c0:	nop
   4017c1:	mov    -0x38(%rbp),%rax
   4017c5:	xor    %fs:0x28,%rax
@@ -726,14 +726,14 @@ Disassembly of section .text:
   4017d2:	mov    %rax,%rbx
   4017d5:	lea    -0x13c(%rbp),%rax
   4017dc:	mov    %rax,%rdi
-  4017df:	callq  401920 <_ZNSaIiED1Ev>
+  4017df:	callq  401a04 <_ZNSaIiED1Ev>
   4017e4:	mov    %rbx,%rax
   4017e7:	mov    %rax,%rdi
   4017ea:	callq  400f20 <_Unwind_Resume@plt>
   4017ef:	mov    %rax,%rbx
   4017f2:	lea    -0xe0(%rbp),%rax
   4017f9:	mov    %rax,%rdi
-  4017fc:	callq  4019a6 <_ZNSt6vectorIiSaIiEED1Ev>
+  4017fc:	callq  401a8a <_ZNSt6vectorIiSaIiEED1Ev>
   401801:	mov    %rbx,%rax
   401804:	mov    %rax,%rdi
   401807:	callq  400f20 <_Unwind_Resume@plt>
@@ -750,691 +750,762 @@ Disassembly of section .text:
 0000000000401823 <main>:
   401823:	push   %rbp
   401824:	mov    %rsp,%rbp
-  401827:	sub    $0x10,%rsp
-  40182b:	movl   $0x1,-0x8(%rbp)
-  401832:	movl   $0x0,-0x4(%rbp)
-  401839:	mov    $0x402128,%edi
-  40183e:	callq  400db0 <puts@plt>
-  401843:	mov    -0x4(%rbp),%edx
-  401846:	mov    -0x8(%rbp),%eax
-  401849:	mov    %edx,%esi
-  40184b:	mov    %eax,%edi
-  40184d:	callq  40106f <_Z6branchii>
-  401852:	mov    $0x40213e,%edi
-  401857:	callq  400db0 <puts@plt>
-  40185c:	callq  401126 <_Z4loopv>
-  401861:	mov    $0x402155,%edi
-  401866:	callq  400db0 <puts@plt>
-  40186b:	callq  401282 <_Z9dataTypesv>
-  401870:	movl   $0x2,0x20189e(%rip)        # 603118 <S>
-  40187a:	movl   $0x0,0x2019d0(%rip)        # 603254 <ics_me+0x14>
-  401884:	mov    $0x0,%eax
-  401889:	leaveq 
-  40188a:	retq   
+  401827:	push   %rbx
+  401828:	sub    $0x48,%rsp
+  40182c:	mov    %fs:0x28,%rax
+  401835:	mov    %rax,-0x18(%rbp)
+  401839:	xor    %eax,%eax
+  40183b:	movl   $0x1,-0x48(%rbp)
+  401842:	movl   $0x0,-0x44(%rbp)
+  401849:	mov    $0x402230,%edi
+  40184e:	callq  400db0 <puts@plt>
+  401853:	mov    -0x44(%rbp),%edx
+  401856:	mov    -0x48(%rbp),%eax
+  401859:	mov    %edx,%esi
+  40185b:	mov    %eax,%edi
+  40185d:	callq  40106f <_Z6branchii>
+  401862:	mov    $0x402246,%edi
+  401867:	callq  400db0 <puts@plt>
+  40186c:	callq  401126 <_Z4loopv>
+  401871:	mov    $0x40225d,%edi
+  401876:	callq  400db0 <puts@plt>
+  40187b:	callq  401282 <_Z9dataTypesv>
+  401880:	movl   $0x2,0x20188e(%rip)        # 603118 <S>
+  40188a:	movl   $0x0,0x2019c0(%rip)        # 603254 <ics_me+0x14>
+  401894:	callq  401036 <_Z7partingv>
+  401899:	lea    -0x40(%rbp),%rax
+  40189d:	mov    %rax,%rdi
+  4018a0:	callq  401972 <_ZN6hit_stC1Ev>
+  4018a5:	lea    -0x40(%rbp),%rax
+  4018a9:	mov    %rax,%rdi
+  4018ac:	callq  4019c2 <_ZN6hit_st8sayhelloEv>
+  4018b1:	lea    -0x40(%rbp),%rax
+  4018b5:	mov    %rax,%rdi
+  4018b8:	callq  4019a8 <_ZN6hit_stD1Ev>
+  4018bd:	mov    $0x0,%eax
+  4018c2:	mov    -0x18(%rbp),%rcx
+  4018c6:	xor    %fs:0x28,%rcx
+  4018cf:	je     4018f2 <main+0xcf>
+  4018d1:	jmp    4018ed <main+0xca>
+  4018d3:	mov    %rax,%rbx
+  4018d6:	lea    -0x40(%rbp),%rax
+  4018da:	mov    %rax,%rdi
+  4018dd:	callq  4019a8 <_ZN6hit_stD1Ev>
+  4018e2:	mov    %rbx,%rax
+  4018e5:	mov    %rax,%rdi
+  4018e8:	callq  400f20 <_Unwind_Resume@plt>
+  4018ed:	callq  400e90 <__stack_chk_fail@plt>
+  4018f2:	add    $0x48,%rsp
+  4018f6:	pop    %rbx
+  4018f7:	pop    %rbp
+  4018f8:	retq   
 
-000000000040188b <_Z3sumii>:
-  40188b:	push   %rbp
-  40188c:	mov    %rsp,%rbp
-  40188f:	mov    %edi,-0x14(%rbp)
-  401892:	mov    %esi,-0x18(%rbp)
-  401895:	mov    -0x14(%rbp),%edx
-  401898:	mov    -0x18(%rbp),%eax
-  40189b:	add    %edx,%eax
-  40189d:	mov    %eax,-0x4(%rbp)
-  4018a0:	mov    -0x4(%rbp),%eax
-  4018a3:	pop    %rbp
-  4018a4:	retq   
+00000000004018f9 <_Z3sumii>:
+  4018f9:	push   %rbp
+  4018fa:	mov    %rsp,%rbp
+  4018fd:	mov    %edi,-0x14(%rbp)
+  401900:	mov    %esi,-0x18(%rbp)
+  401903:	mov    -0x14(%rbp),%edx
+  401906:	mov    -0x18(%rbp),%eax
+  401909:	add    %edx,%eax
+  40190b:	mov    %eax,-0x4(%rbp)
+  40190e:	mov    -0x4(%rbp),%eax
+  401911:	pop    %rbp
+  401912:	retq   
 
-00000000004018a5 <_Z41__static_initialization_and_destruction_0ii>:
-  4018a5:	push   %rbp
-  4018a6:	mov    %rsp,%rbp
-  4018a9:	sub    $0x10,%rsp
-  4018ad:	mov    %edi,-0x4(%rbp)
-  4018b0:	mov    %esi,-0x8(%rbp)
-  4018b3:	cmpl   $0x1,-0x4(%rbp)
-  4018b7:	jne    4018e0 <_Z41__static_initialization_and_destruction_0ii+0x3b>
-  4018b9:	cmpl   $0xffff,-0x8(%rbp)
-  4018c0:	jne    4018e0 <_Z41__static_initialization_and_destruction_0ii+0x3b>
-  4018c2:	mov    $0x60325c,%edi
-  4018c7:	callq  400de0 <_ZNSt8ios_base4InitC1Ev@plt>
-  4018cc:	mov    $0x603110,%edx
-  4018d1:	mov    $0x60325c,%esi
-  4018d6:	mov    $0x400e40,%edi
-  4018db:	callq  400e20 <__cxa_atexit@plt>
-  4018e0:	nop
-  4018e1:	leaveq 
-  4018e2:	retq   
+0000000000401913 <_Z41__static_initialization_and_destruction_0ii>:
+  401913:	push   %rbp
+  401914:	mov    %rsp,%rbp
+  401917:	sub    $0x10,%rsp
+  40191b:	mov    %edi,-0x4(%rbp)
+  40191e:	mov    %esi,-0x8(%rbp)
+  401921:	cmpl   $0x1,-0x4(%rbp)
+  401925:	jne    40194e <_Z41__static_initialization_and_destruction_0ii+0x3b>
+  401927:	cmpl   $0xffff,-0x8(%rbp)
+  40192e:	jne    40194e <_Z41__static_initialization_and_destruction_0ii+0x3b>
+  401930:	mov    $0x60325c,%edi
+  401935:	callq  400de0 <_ZNSt8ios_base4InitC1Ev@plt>
+  40193a:	mov    $0x603110,%edx
+  40193f:	mov    $0x60325c,%esi
+  401944:	mov    $0x400e40,%edi
+  401949:	callq  400e20 <__cxa_atexit@plt>
+  40194e:	nop
+  40194f:	leaveq 
+  401950:	retq   
 
-00000000004018e3 <_GLOBAL__sub_I__Z7partingv>:
-  4018e3:	push   %rbp
-  4018e4:	mov    %rsp,%rbp
-  4018e7:	mov    $0xffff,%esi
-  4018ec:	mov    $0x1,%edi
-  4018f1:	callq  4018a5 <_Z41__static_initialization_and_destruction_0ii>
-  4018f6:	pop    %rbp
-  4018f7:	retq   
+0000000000401951 <_GLOBAL__sub_I__Z7partingv>:
+  401951:	push   %rbp
+  401952:	mov    %rsp,%rbp
+  401955:	mov    $0xffff,%esi
+  40195a:	mov    $0x1,%edi
+  40195f:	callq  401913 <_Z41__static_initialization_and_destruction_0ii>
+  401964:	pop    %rbp
+  401965:	retq   
 
-00000000004018f8 <_ZSt12setprecisioni>:
-  4018f8:	push   %rbp
-  4018f9:	mov    %rsp,%rbp
-  4018fc:	mov    %edi,-0x4(%rbp)
-  4018ff:	mov    -0x4(%rbp),%eax
-  401902:	pop    %rbp
-  401903:	retq   
+0000000000401966 <_ZSt12setprecisioni>:
+  401966:	push   %rbp
+  401967:	mov    %rsp,%rbp
+  40196a:	mov    %edi,-0x4(%rbp)
+  40196d:	mov    -0x4(%rbp),%eax
+  401970:	pop    %rbp
+  401971:	retq   
 
-0000000000401904 <_ZNSaIiEC1Ev>:
-  401904:	push   %rbp
-  401905:	mov    %rsp,%rbp
-  401908:	sub    $0x10,%rsp
-  40190c:	mov    %rdi,-0x8(%rbp)
-  401910:	mov    -0x8(%rbp),%rax
-  401914:	mov    %rax,%rdi
-  401917:	callq  401a0c <_ZN9__gnu_cxx13new_allocatorIiEC1Ev>
-  40191c:	nop
-  40191d:	leaveq 
-  40191e:	retq   
-  40191f:	nop
+0000000000401972 <_ZN6hit_stC1Ev>:
+  401972:	push   %rbp
+  401973:	mov    %rsp,%rbp
+  401976:	mov    %rdi,-0x8(%rbp)
+  40197a:	mov    -0x8(%rbp),%rax
+  40197e:	movl   $0x12,0x14(%rax)
+  401985:	mov    -0x8(%rbp),%rax
+  401989:	movl   $0x133c9cc,0x18(%rax)
+  401990:	mov    -0x8(%rbp),%rax
+  401994:	movl   $0x259,0x1c(%rax)
+  40199b:	mov    -0x8(%rbp),%rax
+  40199f:	movl   $0x746968,(%rax)
+  4019a5:	nop
+  4019a6:	pop    %rbp
+  4019a7:	retq   
 
-0000000000401920 <_ZNSaIiED1Ev>:
-  401920:	push   %rbp
-  401921:	mov    %rsp,%rbp
-  401924:	sub    $0x10,%rsp
-  401928:	mov    %rdi,-0x8(%rbp)
-  40192c:	mov    -0x8(%rbp),%rax
-  401930:	mov    %rax,%rdi
-  401933:	callq  401a18 <_ZN9__gnu_cxx13new_allocatorIiED1Ev>
-  401938:	nop
-  401939:	leaveq 
-  40193a:	retq   
-  40193b:	nop
+00000000004019a8 <_ZN6hit_stD1Ev>:
+  4019a8:	push   %rbp
+  4019a9:	mov    %rsp,%rbp
+  4019ac:	sub    $0x10,%rsp
+  4019b0:	mov    %rdi,-0x8(%rbp)
+  4019b4:	mov    $0x402078,%edi
+  4019b9:	callq  400db0 <puts@plt>
+  4019be:	nop
+  4019bf:	leaveq 
+  4019c0:	retq   
+  4019c1:	nop
 
-000000000040193c <_ZNSt6vectorIiSaIiEEC1EmRKiRKS0_>:
-  40193c:	push   %rbp
-  40193d:	mov    %rsp,%rbp
-  401940:	push   %rbx
-  401941:	sub    $0x28,%rsp
-  401945:	mov    %rdi,-0x18(%rbp)
-  401949:	mov    %rsi,-0x20(%rbp)
-  40194d:	mov    %rdx,-0x28(%rbp)
-  401951:	mov    %rcx,-0x30(%rbp)
-  401955:	mov    -0x18(%rbp),%rax
-  401959:	mov    -0x30(%rbp),%rdx
-  40195d:	mov    -0x20(%rbp),%rcx
-  401961:	mov    %rcx,%rsi
-  401964:	mov    %rax,%rdi
-  401967:	callq  401a40 <_ZNSt12_Vector_baseIiSaIiEEC1EmRKS0_>
-  40196c:	mov    -0x28(%rbp),%rdx
-  401970:	mov    -0x20(%rbp),%rcx
-  401974:	mov    -0x18(%rbp),%rax
-  401978:	mov    %rcx,%rsi
-  40197b:	mov    %rax,%rdi
-  40197e:	callq  401b10 <_ZNSt6vectorIiSaIiEE18_M_fill_initializeEmRKi>
-  401983:	jmp    40199f <_ZNSt6vectorIiSaIiEEC1EmRKiRKS0_+0x63>
-  401985:	mov    %rax,%rbx
-  401988:	mov    -0x18(%rbp),%rax
-  40198c:	mov    %rax,%rdi
-  40198f:	callq  401a9e <_ZNSt12_Vector_baseIiSaIiEED1Ev>
-  401994:	mov    %rbx,%rax
-  401997:	mov    %rax,%rdi
-  40199a:	callq  400f20 <_Unwind_Resume@plt>
-  40199f:	add    $0x28,%rsp
-  4019a3:	pop    %rbx
-  4019a4:	pop    %rbp
-  4019a5:	retq   
+00000000004019c2 <_ZN6hit_st8sayhelloEv>:
+  4019c2:	push   %rbp
+  4019c3:	mov    %rsp,%rbp
+  4019c6:	sub    $0x10,%rsp
+  4019ca:	mov    %rdi,-0x8(%rbp)
+  4019ce:	mov    -0x8(%rbp),%rax
+  4019d2:	mov    %rax,%rsi
+  4019d5:	mov    $0x40208e,%edi
+  4019da:	mov    $0x0,%eax
+  4019df:	callq  400d70 <printf@plt>
+  4019e4:	nop
+  4019e5:	leaveq 
+  4019e6:	retq   
+  4019e7:	nop
 
-00000000004019a6 <_ZNSt6vectorIiSaIiEED1Ev>:
-  4019a6:	push   %rbp
-  4019a7:	mov    %rsp,%rbp
-  4019aa:	push   %rbx
-  4019ab:	sub    $0x18,%rsp
-  4019af:	mov    %rdi,-0x18(%rbp)
-  4019b3:	mov    -0x18(%rbp),%rax
-  4019b7:	mov    %rax,%rdi
-  4019ba:	callq  401b58 <_ZNSt12_Vector_baseIiSaIiEE19_M_get_Tp_allocatorEv>
-  4019bf:	mov    %rax,%rdx
-  4019c2:	mov    -0x18(%rbp),%rax
-  4019c6:	mov    0x8(%rax),%rcx
-  4019ca:	mov    -0x18(%rbp),%rax
-  4019ce:	mov    (%rax),%rax
-  4019d1:	mov    %rcx,%rsi
-  4019d4:	mov    %rax,%rdi
-  4019d7:	callq  401b66 <_ZSt8_DestroyIPiiEvT_S1_RSaIT0_E>
-  4019dc:	mov    -0x18(%rbp),%rax
-  4019e0:	mov    %rax,%rdi
-  4019e3:	callq  401a9e <_ZNSt12_Vector_baseIiSaIiEED1Ev>
-  4019e8:	jmp    401a04 <_ZNSt6vectorIiSaIiEED1Ev+0x5e>
-  4019ea:	mov    %rax,%rbx
-  4019ed:	mov    -0x18(%rbp),%rax
-  4019f1:	mov    %rax,%rdi
-  4019f4:	callq  401a9e <_ZNSt12_Vector_baseIiSaIiEED1Ev>
-  4019f9:	mov    %rbx,%rax
-  4019fc:	mov    %rax,%rdi
-  4019ff:	callq  400f20 <_Unwind_Resume@plt>
-  401a04:	add    $0x18,%rsp
-  401a08:	pop    %rbx
-  401a09:	pop    %rbp
-  401a0a:	retq   
-  401a0b:	nop
+00000000004019e8 <_ZNSaIiEC1Ev>:
+  4019e8:	push   %rbp
+  4019e9:	mov    %rsp,%rbp
+  4019ec:	sub    $0x10,%rsp
+  4019f0:	mov    %rdi,-0x8(%rbp)
+  4019f4:	mov    -0x8(%rbp),%rax
+  4019f8:	mov    %rax,%rdi
+  4019fb:	callq  401af0 <_ZN9__gnu_cxx13new_allocatorIiEC1Ev>
+  401a00:	nop
+  401a01:	leaveq 
+  401a02:	retq   
+  401a03:	nop
 
-0000000000401a0c <_ZN9__gnu_cxx13new_allocatorIiEC1Ev>:
-  401a0c:	push   %rbp
-  401a0d:	mov    %rsp,%rbp
-  401a10:	mov    %rdi,-0x8(%rbp)
-  401a14:	nop
-  401a15:	pop    %rbp
-  401a16:	retq   
-  401a17:	nop
+0000000000401a04 <_ZNSaIiED1Ev>:
+  401a04:	push   %rbp
+  401a05:	mov    %rsp,%rbp
+  401a08:	sub    $0x10,%rsp
+  401a0c:	mov    %rdi,-0x8(%rbp)
+  401a10:	mov    -0x8(%rbp),%rax
+  401a14:	mov    %rax,%rdi
+  401a17:	callq  401afc <_ZN9__gnu_cxx13new_allocatorIiED1Ev>
+  401a1c:	nop
+  401a1d:	leaveq 
+  401a1e:	retq   
+  401a1f:	nop
 
-0000000000401a18 <_ZN9__gnu_cxx13new_allocatorIiED1Ev>:
-  401a18:	push   %rbp
-  401a19:	mov    %rsp,%rbp
-  401a1c:	mov    %rdi,-0x8(%rbp)
-  401a20:	nop
-  401a21:	pop    %rbp
-  401a22:	retq   
-  401a23:	nop
-
-0000000000401a24 <_ZNSt12_Vector_baseIiSaIiEE12_Vector_implD1Ev>:
-  401a24:	push   %rbp
-  401a25:	mov    %rsp,%rbp
-  401a28:	sub    $0x10,%rsp
-  401a2c:	mov    %rdi,-0x8(%rbp)
-  401a30:	mov    -0x8(%rbp),%rax
-  401a34:	mov    %rax,%rdi
-  401a37:	callq  401920 <_ZNSaIiED1Ev>
-  401a3c:	nop
-  401a3d:	leaveq 
-  401a3e:	retq   
-  401a3f:	nop
-
-0000000000401a40 <_ZNSt12_Vector_baseIiSaIiEEC1EmRKS0_>:
-  401a40:	push   %rbp
-  401a41:	mov    %rsp,%rbp
-  401a44:	push   %rbx
-  401a45:	sub    $0x28,%rsp
-  401a49:	mov    %rdi,-0x18(%rbp)
-  401a4d:	mov    %rsi,-0x20(%rbp)
-  401a51:	mov    %rdx,-0x28(%rbp)
-  401a55:	mov    -0x18(%rbp),%rax
-  401a59:	mov    -0x28(%rbp),%rdx
-  401a5d:	mov    %rdx,%rsi
-  401a60:	mov    %rax,%rdi
-  401a63:	callq  401b90 <_ZNSt12_Vector_baseIiSaIiEE12_Vector_implC1ERKS0_>
-  401a68:	mov    -0x20(%rbp),%rdx
+0000000000401a20 <_ZNSt6vectorIiSaIiEEC1EmRKiRKS0_>:
+  401a20:	push   %rbp
+  401a21:	mov    %rsp,%rbp
+  401a24:	push   %rbx
+  401a25:	sub    $0x28,%rsp
+  401a29:	mov    %rdi,-0x18(%rbp)
+  401a2d:	mov    %rsi,-0x20(%rbp)
+  401a31:	mov    %rdx,-0x28(%rbp)
+  401a35:	mov    %rcx,-0x30(%rbp)
+  401a39:	mov    -0x18(%rbp),%rax
+  401a3d:	mov    -0x30(%rbp),%rdx
+  401a41:	mov    -0x20(%rbp),%rcx
+  401a45:	mov    %rcx,%rsi
+  401a48:	mov    %rax,%rdi
+  401a4b:	callq  401b24 <_ZNSt12_Vector_baseIiSaIiEEC1EmRKS0_>
+  401a50:	mov    -0x28(%rbp),%rdx
+  401a54:	mov    -0x20(%rbp),%rcx
+  401a58:	mov    -0x18(%rbp),%rax
+  401a5c:	mov    %rcx,%rsi
+  401a5f:	mov    %rax,%rdi
+  401a62:	callq  401bf4 <_ZNSt6vectorIiSaIiEE18_M_fill_initializeEmRKi>
+  401a67:	jmp    401a83 <_ZNSt6vectorIiSaIiEEC1EmRKiRKS0_+0x63>
+  401a69:	mov    %rax,%rbx
   401a6c:	mov    -0x18(%rbp),%rax
-  401a70:	mov    %rdx,%rsi
-  401a73:	mov    %rax,%rdi
-  401a76:	callq  401bda <_ZNSt12_Vector_baseIiSaIiEE17_M_create_storageEm>
-  401a7b:	jmp    401a97 <_ZNSt12_Vector_baseIiSaIiEEC1EmRKS0_+0x57>
-  401a7d:	mov    %rax,%rbx
-  401a80:	mov    -0x18(%rbp),%rax
-  401a84:	mov    %rax,%rdi
-  401a87:	callq  401a24 <_ZNSt12_Vector_baseIiSaIiEE12_Vector_implD1Ev>
-  401a8c:	mov    %rbx,%rax
-  401a8f:	mov    %rax,%rdi
-  401a92:	callq  400f20 <_Unwind_Resume@plt>
-  401a97:	add    $0x28,%rsp
-  401a9b:	pop    %rbx
-  401a9c:	pop    %rbp
-  401a9d:	retq   
+  401a70:	mov    %rax,%rdi
+  401a73:	callq  401b82 <_ZNSt12_Vector_baseIiSaIiEED1Ev>
+  401a78:	mov    %rbx,%rax
+  401a7b:	mov    %rax,%rdi
+  401a7e:	callq  400f20 <_Unwind_Resume@plt>
+  401a83:	add    $0x28,%rsp
+  401a87:	pop    %rbx
+  401a88:	pop    %rbp
+  401a89:	retq   
 
-0000000000401a9e <_ZNSt12_Vector_baseIiSaIiEED1Ev>:
-  401a9e:	push   %rbp
-  401a9f:	mov    %rsp,%rbp
-  401aa2:	push   %rbx
-  401aa3:	sub    $0x18,%rsp
-  401aa7:	mov    %rdi,-0x18(%rbp)
-  401aab:	mov    -0x18(%rbp),%rax
-  401aaf:	mov    0x10(%rax),%rax
-  401ab3:	mov    %rax,%rdx
-  401ab6:	mov    -0x18(%rbp),%rax
-  401aba:	mov    (%rax),%rax
-  401abd:	sub    %rax,%rdx
-  401ac0:	mov    %rdx,%rax
-  401ac3:	sar    $0x2,%rax
-  401ac7:	mov    %rax,%rdx
-  401aca:	mov    -0x18(%rbp),%rax
-  401ace:	mov    (%rax),%rcx
+0000000000401a8a <_ZNSt6vectorIiSaIiEED1Ev>:
+  401a8a:	push   %rbp
+  401a8b:	mov    %rsp,%rbp
+  401a8e:	push   %rbx
+  401a8f:	sub    $0x18,%rsp
+  401a93:	mov    %rdi,-0x18(%rbp)
+  401a97:	mov    -0x18(%rbp),%rax
+  401a9b:	mov    %rax,%rdi
+  401a9e:	callq  401c3c <_ZNSt12_Vector_baseIiSaIiEE19_M_get_Tp_allocatorEv>
+  401aa3:	mov    %rax,%rdx
+  401aa6:	mov    -0x18(%rbp),%rax
+  401aaa:	mov    0x8(%rax),%rcx
+  401aae:	mov    -0x18(%rbp),%rax
+  401ab2:	mov    (%rax),%rax
+  401ab5:	mov    %rcx,%rsi
+  401ab8:	mov    %rax,%rdi
+  401abb:	callq  401c4a <_ZSt8_DestroyIPiiEvT_S1_RSaIT0_E>
+  401ac0:	mov    -0x18(%rbp),%rax
+  401ac4:	mov    %rax,%rdi
+  401ac7:	callq  401b82 <_ZNSt12_Vector_baseIiSaIiEED1Ev>
+  401acc:	jmp    401ae8 <_ZNSt6vectorIiSaIiEED1Ev+0x5e>
+  401ace:	mov    %rax,%rbx
   401ad1:	mov    -0x18(%rbp),%rax
-  401ad5:	mov    %rcx,%rsi
-  401ad8:	mov    %rax,%rdi
-  401adb:	callq  401c34 <_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim>
-  401ae0:	mov    -0x18(%rbp),%rax
-  401ae4:	mov    %rax,%rdi
-  401ae7:	callq  401a24 <_ZNSt12_Vector_baseIiSaIiEE12_Vector_implD1Ev>
-  401aec:	jmp    401b08 <_ZNSt12_Vector_baseIiSaIiEED1Ev+0x6a>
-  401aee:	mov    %rax,%rbx
-  401af1:	mov    -0x18(%rbp),%rax
-  401af5:	mov    %rax,%rdi
-  401af8:	callq  401a24 <_ZNSt12_Vector_baseIiSaIiEE12_Vector_implD1Ev>
-  401afd:	mov    %rbx,%rax
-  401b00:	mov    %rax,%rdi
-  401b03:	callq  400f20 <_Unwind_Resume@plt>
-  401b08:	add    $0x18,%rsp
-  401b0c:	pop    %rbx
-  401b0d:	pop    %rbp
-  401b0e:	retq   
-  401b0f:	nop
+  401ad5:	mov    %rax,%rdi
+  401ad8:	callq  401b82 <_ZNSt12_Vector_baseIiSaIiEED1Ev>
+  401add:	mov    %rbx,%rax
+  401ae0:	mov    %rax,%rdi
+  401ae3:	callq  400f20 <_Unwind_Resume@plt>
+  401ae8:	add    $0x18,%rsp
+  401aec:	pop    %rbx
+  401aed:	pop    %rbp
+  401aee:	retq   
+  401aef:	nop
 
-0000000000401b10 <_ZNSt6vectorIiSaIiEE18_M_fill_initializeEmRKi>:
-  401b10:	push   %rbp
-  401b11:	mov    %rsp,%rbp
-  401b14:	sub    $0x20,%rsp
-  401b18:	mov    %rdi,-0x8(%rbp)
-  401b1c:	mov    %rsi,-0x10(%rbp)
-  401b20:	mov    %rdx,-0x18(%rbp)
-  401b24:	mov    -0x8(%rbp),%rax
-  401b28:	mov    %rax,%rdi
-  401b2b:	callq  401b58 <_ZNSt12_Vector_baseIiSaIiEE19_M_get_Tp_allocatorEv>
-  401b30:	mov    %rax,%rcx
-  401b33:	mov    -0x8(%rbp),%rax
-  401b37:	mov    (%rax),%rax
-  401b3a:	mov    -0x18(%rbp),%rdx
-  401b3e:	mov    -0x10(%rbp),%rsi
-  401b42:	mov    %rax,%rdi
-  401b45:	callq  401c69 <_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E>
-  401b4a:	mov    %rax,%rdx
-  401b4d:	mov    -0x8(%rbp),%rax
-  401b51:	mov    %rdx,0x8(%rax)
-  401b55:	nop
-  401b56:	leaveq 
-  401b57:	retq   
+0000000000401af0 <_ZN9__gnu_cxx13new_allocatorIiEC1Ev>:
+  401af0:	push   %rbp
+  401af1:	mov    %rsp,%rbp
+  401af4:	mov    %rdi,-0x8(%rbp)
+  401af8:	nop
+  401af9:	pop    %rbp
+  401afa:	retq   
+  401afb:	nop
 
-0000000000401b58 <_ZNSt12_Vector_baseIiSaIiEE19_M_get_Tp_allocatorEv>:
-  401b58:	push   %rbp
-  401b59:	mov    %rsp,%rbp
-  401b5c:	mov    %rdi,-0x8(%rbp)
-  401b60:	mov    -0x8(%rbp),%rax
-  401b64:	pop    %rbp
-  401b65:	retq   
+0000000000401afc <_ZN9__gnu_cxx13new_allocatorIiED1Ev>:
+  401afc:	push   %rbp
+  401afd:	mov    %rsp,%rbp
+  401b00:	mov    %rdi,-0x8(%rbp)
+  401b04:	nop
+  401b05:	pop    %rbp
+  401b06:	retq   
+  401b07:	nop
 
-0000000000401b66 <_ZSt8_DestroyIPiiEvT_S1_RSaIT0_E>:
-  401b66:	push   %rbp
-  401b67:	mov    %rsp,%rbp
-  401b6a:	sub    $0x20,%rsp
-  401b6e:	mov    %rdi,-0x8(%rbp)
-  401b72:	mov    %rsi,-0x10(%rbp)
-  401b76:	mov    %rdx,-0x18(%rbp)
-  401b7a:	mov    -0x10(%rbp),%rdx
-  401b7e:	mov    -0x8(%rbp),%rax
-  401b82:	mov    %rdx,%rsi
-  401b85:	mov    %rax,%rdi
-  401b88:	callq  401c9a <_ZSt8_DestroyIPiEvT_S1_>
-  401b8d:	nop
-  401b8e:	leaveq 
-  401b8f:	retq   
+0000000000401b08 <_ZNSt12_Vector_baseIiSaIiEE12_Vector_implD1Ev>:
+  401b08:	push   %rbp
+  401b09:	mov    %rsp,%rbp
+  401b0c:	sub    $0x10,%rsp
+  401b10:	mov    %rdi,-0x8(%rbp)
+  401b14:	mov    -0x8(%rbp),%rax
+  401b18:	mov    %rax,%rdi
+  401b1b:	callq  401a04 <_ZNSaIiED1Ev>
+  401b20:	nop
+  401b21:	leaveq 
+  401b22:	retq   
+  401b23:	nop
 
-0000000000401b90 <_ZNSt12_Vector_baseIiSaIiEE12_Vector_implC1ERKS0_>:
-  401b90:	push   %rbp
-  401b91:	mov    %rsp,%rbp
-  401b94:	sub    $0x10,%rsp
-  401b98:	mov    %rdi,-0x8(%rbp)
-  401b9c:	mov    %rsi,-0x10(%rbp)
-  401ba0:	mov    -0x10(%rbp),%rdx
-  401ba4:	mov    -0x8(%rbp),%rax
-  401ba8:	mov    %rdx,%rsi
-  401bab:	mov    %rax,%rdi
-  401bae:	callq  401cc0 <_ZNSaIiEC1ERKS_>
-  401bb3:	mov    -0x8(%rbp),%rax
-  401bb7:	movq   $0x0,(%rax)
-  401bbe:	mov    -0x8(%rbp),%rax
-  401bc2:	movq   $0x0,0x8(%rax)
-  401bca:	mov    -0x8(%rbp),%rax
-  401bce:	movq   $0x0,0x10(%rax)
-  401bd6:	nop
-  401bd7:	leaveq 
-  401bd8:	retq   
-  401bd9:	nop
+0000000000401b24 <_ZNSt12_Vector_baseIiSaIiEEC1EmRKS0_>:
+  401b24:	push   %rbp
+  401b25:	mov    %rsp,%rbp
+  401b28:	push   %rbx
+  401b29:	sub    $0x28,%rsp
+  401b2d:	mov    %rdi,-0x18(%rbp)
+  401b31:	mov    %rsi,-0x20(%rbp)
+  401b35:	mov    %rdx,-0x28(%rbp)
+  401b39:	mov    -0x18(%rbp),%rax
+  401b3d:	mov    -0x28(%rbp),%rdx
+  401b41:	mov    %rdx,%rsi
+  401b44:	mov    %rax,%rdi
+  401b47:	callq  401c74 <_ZNSt12_Vector_baseIiSaIiEE12_Vector_implC1ERKS0_>
+  401b4c:	mov    -0x20(%rbp),%rdx
+  401b50:	mov    -0x18(%rbp),%rax
+  401b54:	mov    %rdx,%rsi
+  401b57:	mov    %rax,%rdi
+  401b5a:	callq  401cbe <_ZNSt12_Vector_baseIiSaIiEE17_M_create_storageEm>
+  401b5f:	jmp    401b7b <_ZNSt12_Vector_baseIiSaIiEEC1EmRKS0_+0x57>
+  401b61:	mov    %rax,%rbx
+  401b64:	mov    -0x18(%rbp),%rax
+  401b68:	mov    %rax,%rdi
+  401b6b:	callq  401b08 <_ZNSt12_Vector_baseIiSaIiEE12_Vector_implD1Ev>
+  401b70:	mov    %rbx,%rax
+  401b73:	mov    %rax,%rdi
+  401b76:	callq  400f20 <_Unwind_Resume@plt>
+  401b7b:	add    $0x28,%rsp
+  401b7f:	pop    %rbx
+  401b80:	pop    %rbp
+  401b81:	retq   
 
-0000000000401bda <_ZNSt12_Vector_baseIiSaIiEE17_M_create_storageEm>:
-  401bda:	push   %rbp
-  401bdb:	mov    %rsp,%rbp
-  401bde:	sub    $0x10,%rsp
-  401be2:	mov    %rdi,-0x8(%rbp)
-  401be6:	mov    %rsi,-0x10(%rbp)
-  401bea:	mov    -0x10(%rbp),%rdx
-  401bee:	mov    -0x8(%rbp),%rax
-  401bf2:	mov    %rdx,%rsi
-  401bf5:	mov    %rax,%rdi
-  401bf8:	callq  401ce6 <_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm>
-  401bfd:	mov    %rax,%rdx
-  401c00:	mov    -0x8(%rbp),%rax
-  401c04:	mov    %rdx,(%rax)
-  401c07:	mov    -0x8(%rbp),%rax
-  401c0b:	mov    (%rax),%rdx
-  401c0e:	mov    -0x8(%rbp),%rax
-  401c12:	mov    %rdx,0x8(%rax)
-  401c16:	mov    -0x8(%rbp),%rax
-  401c1a:	mov    (%rax),%rax
-  401c1d:	mov    -0x10(%rbp),%rdx
-  401c21:	shl    $0x2,%rdx
-  401c25:	add    %rax,%rdx
-  401c28:	mov    -0x8(%rbp),%rax
-  401c2c:	mov    %rdx,0x10(%rax)
-  401c30:	nop
-  401c31:	leaveq 
-  401c32:	retq   
-  401c33:	nop
+0000000000401b82 <_ZNSt12_Vector_baseIiSaIiEED1Ev>:
+  401b82:	push   %rbp
+  401b83:	mov    %rsp,%rbp
+  401b86:	push   %rbx
+  401b87:	sub    $0x18,%rsp
+  401b8b:	mov    %rdi,-0x18(%rbp)
+  401b8f:	mov    -0x18(%rbp),%rax
+  401b93:	mov    0x10(%rax),%rax
+  401b97:	mov    %rax,%rdx
+  401b9a:	mov    -0x18(%rbp),%rax
+  401b9e:	mov    (%rax),%rax
+  401ba1:	sub    %rax,%rdx
+  401ba4:	mov    %rdx,%rax
+  401ba7:	sar    $0x2,%rax
+  401bab:	mov    %rax,%rdx
+  401bae:	mov    -0x18(%rbp),%rax
+  401bb2:	mov    (%rax),%rcx
+  401bb5:	mov    -0x18(%rbp),%rax
+  401bb9:	mov    %rcx,%rsi
+  401bbc:	mov    %rax,%rdi
+  401bbf:	callq  401d18 <_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim>
+  401bc4:	mov    -0x18(%rbp),%rax
+  401bc8:	mov    %rax,%rdi
+  401bcb:	callq  401b08 <_ZNSt12_Vector_baseIiSaIiEE12_Vector_implD1Ev>
+  401bd0:	jmp    401bec <_ZNSt12_Vector_baseIiSaIiEED1Ev+0x6a>
+  401bd2:	mov    %rax,%rbx
+  401bd5:	mov    -0x18(%rbp),%rax
+  401bd9:	mov    %rax,%rdi
+  401bdc:	callq  401b08 <_ZNSt12_Vector_baseIiSaIiEE12_Vector_implD1Ev>
+  401be1:	mov    %rbx,%rax
+  401be4:	mov    %rax,%rdi
+  401be7:	callq  400f20 <_Unwind_Resume@plt>
+  401bec:	add    $0x18,%rsp
+  401bf0:	pop    %rbx
+  401bf1:	pop    %rbp
+  401bf2:	retq   
+  401bf3:	nop
 
-0000000000401c34 <_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim>:
-  401c34:	push   %rbp
-  401c35:	mov    %rsp,%rbp
-  401c38:	sub    $0x20,%rsp
-  401c3c:	mov    %rdi,-0x8(%rbp)
-  401c40:	mov    %rsi,-0x10(%rbp)
-  401c44:	mov    %rdx,-0x18(%rbp)
-  401c48:	cmpq   $0x0,-0x10(%rbp)
-  401c4d:	je     401c66 <_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim+0x32>
-  401c4f:	mov    -0x8(%rbp),%rax
-  401c53:	mov    -0x18(%rbp),%rdx
-  401c57:	mov    -0x10(%rbp),%rcx
-  401c5b:	mov    %rcx,%rsi
-  401c5e:	mov    %rax,%rdi
-  401c61:	callq  401d19 <_ZN9__gnu_cxx14__alloc_traitsISaIiEE10deallocateERS1_Pim>
-  401c66:	nop
-  401c67:	leaveq 
-  401c68:	retq   
+0000000000401bf4 <_ZNSt6vectorIiSaIiEE18_M_fill_initializeEmRKi>:
+  401bf4:	push   %rbp
+  401bf5:	mov    %rsp,%rbp
+  401bf8:	sub    $0x20,%rsp
+  401bfc:	mov    %rdi,-0x8(%rbp)
+  401c00:	mov    %rsi,-0x10(%rbp)
+  401c04:	mov    %rdx,-0x18(%rbp)
+  401c08:	mov    -0x8(%rbp),%rax
+  401c0c:	mov    %rax,%rdi
+  401c0f:	callq  401c3c <_ZNSt12_Vector_baseIiSaIiEE19_M_get_Tp_allocatorEv>
+  401c14:	mov    %rax,%rcx
+  401c17:	mov    -0x8(%rbp),%rax
+  401c1b:	mov    (%rax),%rax
+  401c1e:	mov    -0x18(%rbp),%rdx
+  401c22:	mov    -0x10(%rbp),%rsi
+  401c26:	mov    %rax,%rdi
+  401c29:	callq  401d4d <_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E>
+  401c2e:	mov    %rax,%rdx
+  401c31:	mov    -0x8(%rbp),%rax
+  401c35:	mov    %rdx,0x8(%rax)
+  401c39:	nop
+  401c3a:	leaveq 
+  401c3b:	retq   
 
-0000000000401c69 <_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E>:
-  401c69:	push   %rbp
-  401c6a:	mov    %rsp,%rbp
-  401c6d:	sub    $0x20,%rsp
-  401c71:	mov    %rdi,-0x8(%rbp)
-  401c75:	mov    %rsi,-0x10(%rbp)
-  401c79:	mov    %rdx,-0x18(%rbp)
-  401c7d:	mov    %rcx,-0x20(%rbp)
-  401c81:	mov    -0x18(%rbp),%rdx
-  401c85:	mov    -0x10(%rbp),%rcx
-  401c89:	mov    -0x8(%rbp),%rax
-  401c8d:	mov    %rcx,%rsi
-  401c90:	mov    %rax,%rdi
-  401c93:	callq  401d47 <_ZSt20uninitialized_fill_nIPimiET_S1_T0_RKT1_>
-  401c98:	leaveq 
-  401c99:	retq   
+0000000000401c3c <_ZNSt12_Vector_baseIiSaIiEE19_M_get_Tp_allocatorEv>:
+  401c3c:	push   %rbp
+  401c3d:	mov    %rsp,%rbp
+  401c40:	mov    %rdi,-0x8(%rbp)
+  401c44:	mov    -0x8(%rbp),%rax
+  401c48:	pop    %rbp
+  401c49:	retq   
 
-0000000000401c9a <_ZSt8_DestroyIPiEvT_S1_>:
-  401c9a:	push   %rbp
-  401c9b:	mov    %rsp,%rbp
-  401c9e:	sub    $0x10,%rsp
-  401ca2:	mov    %rdi,-0x8(%rbp)
-  401ca6:	mov    %rsi,-0x10(%rbp)
-  401caa:	mov    -0x10(%rbp),%rdx
+0000000000401c4a <_ZSt8_DestroyIPiiEvT_S1_RSaIT0_E>:
+  401c4a:	push   %rbp
+  401c4b:	mov    %rsp,%rbp
+  401c4e:	sub    $0x20,%rsp
+  401c52:	mov    %rdi,-0x8(%rbp)
+  401c56:	mov    %rsi,-0x10(%rbp)
+  401c5a:	mov    %rdx,-0x18(%rbp)
+  401c5e:	mov    -0x10(%rbp),%rdx
+  401c62:	mov    -0x8(%rbp),%rax
+  401c66:	mov    %rdx,%rsi
+  401c69:	mov    %rax,%rdi
+  401c6c:	callq  401d7e <_ZSt8_DestroyIPiEvT_S1_>
+  401c71:	nop
+  401c72:	leaveq 
+  401c73:	retq   
+
+0000000000401c74 <_ZNSt12_Vector_baseIiSaIiEE12_Vector_implC1ERKS0_>:
+  401c74:	push   %rbp
+  401c75:	mov    %rsp,%rbp
+  401c78:	sub    $0x10,%rsp
+  401c7c:	mov    %rdi,-0x8(%rbp)
+  401c80:	mov    %rsi,-0x10(%rbp)
+  401c84:	mov    -0x10(%rbp),%rdx
+  401c88:	mov    -0x8(%rbp),%rax
+  401c8c:	mov    %rdx,%rsi
+  401c8f:	mov    %rax,%rdi
+  401c92:	callq  401da4 <_ZNSaIiEC1ERKS_>
+  401c97:	mov    -0x8(%rbp),%rax
+  401c9b:	movq   $0x0,(%rax)
+  401ca2:	mov    -0x8(%rbp),%rax
+  401ca6:	movq   $0x0,0x8(%rax)
   401cae:	mov    -0x8(%rbp),%rax
-  401cb2:	mov    %rdx,%rsi
-  401cb5:	mov    %rax,%rdi
-  401cb8:	callq  401d78 <_ZNSt12_Destroy_auxILb1EE9__destroyIPiEEvT_S3_>
+  401cb2:	movq   $0x0,0x10(%rax)
+  401cba:	nop
+  401cbb:	leaveq 
+  401cbc:	retq   
   401cbd:	nop
-  401cbe:	leaveq 
-  401cbf:	retq   
 
-0000000000401cc0 <_ZNSaIiEC1ERKS_>:
-  401cc0:	push   %rbp
-  401cc1:	mov    %rsp,%rbp
-  401cc4:	sub    $0x10,%rsp
-  401cc8:	mov    %rdi,-0x8(%rbp)
-  401ccc:	mov    %rsi,-0x10(%rbp)
-  401cd0:	mov    -0x10(%rbp),%rdx
-  401cd4:	mov    -0x8(%rbp),%rax
-  401cd8:	mov    %rdx,%rsi
-  401cdb:	mov    %rax,%rdi
-  401cde:	callq  401d88 <_ZN9__gnu_cxx13new_allocatorIiEC1ERKS1_>
-  401ce3:	nop
-  401ce4:	leaveq 
-  401ce5:	retq   
-
-0000000000401ce6 <_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm>:
-  401ce6:	push   %rbp
-  401ce7:	mov    %rsp,%rbp
-  401cea:	sub    $0x10,%rsp
-  401cee:	mov    %rdi,-0x8(%rbp)
-  401cf2:	mov    %rsi,-0x10(%rbp)
-  401cf6:	cmpq   $0x0,-0x10(%rbp)
-  401cfb:	je     401d12 <_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm+0x2c>
-  401cfd:	mov    -0x8(%rbp),%rax
+0000000000401cbe <_ZNSt12_Vector_baseIiSaIiEE17_M_create_storageEm>:
+  401cbe:	push   %rbp
+  401cbf:	mov    %rsp,%rbp
+  401cc2:	sub    $0x10,%rsp
+  401cc6:	mov    %rdi,-0x8(%rbp)
+  401cca:	mov    %rsi,-0x10(%rbp)
+  401cce:	mov    -0x10(%rbp),%rdx
+  401cd2:	mov    -0x8(%rbp),%rax
+  401cd6:	mov    %rdx,%rsi
+  401cd9:	mov    %rax,%rdi
+  401cdc:	callq  401dca <_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm>
+  401ce1:	mov    %rax,%rdx
+  401ce4:	mov    -0x8(%rbp),%rax
+  401ce8:	mov    %rdx,(%rax)
+  401ceb:	mov    -0x8(%rbp),%rax
+  401cef:	mov    (%rax),%rdx
+  401cf2:	mov    -0x8(%rbp),%rax
+  401cf6:	mov    %rdx,0x8(%rax)
+  401cfa:	mov    -0x8(%rbp),%rax
+  401cfe:	mov    (%rax),%rax
   401d01:	mov    -0x10(%rbp),%rdx
-  401d05:	mov    %rdx,%rsi
-  401d08:	mov    %rax,%rdi
-  401d0b:	callq  401d97 <_ZN9__gnu_cxx14__alloc_traitsISaIiEE8allocateERS1_m>
-  401d10:	jmp    401d17 <_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm+0x31>
-  401d12:	mov    $0x0,%eax
-  401d17:	leaveq 
-  401d18:	retq   
+  401d05:	shl    $0x2,%rdx
+  401d09:	add    %rax,%rdx
+  401d0c:	mov    -0x8(%rbp),%rax
+  401d10:	mov    %rdx,0x10(%rax)
+  401d14:	nop
+  401d15:	leaveq 
+  401d16:	retq   
+  401d17:	nop
 
-0000000000401d19 <_ZN9__gnu_cxx14__alloc_traitsISaIiEE10deallocateERS1_Pim>:
-  401d19:	push   %rbp
-  401d1a:	mov    %rsp,%rbp
-  401d1d:	sub    $0x20,%rsp
-  401d21:	mov    %rdi,-0x8(%rbp)
-  401d25:	mov    %rsi,-0x10(%rbp)
-  401d29:	mov    %rdx,-0x18(%rbp)
-  401d2d:	mov    -0x18(%rbp),%rdx
-  401d31:	mov    -0x10(%rbp),%rcx
-  401d35:	mov    -0x8(%rbp),%rax
-  401d39:	mov    %rcx,%rsi
-  401d3c:	mov    %rax,%rdi
-  401d3f:	callq  401dc2 <_ZN9__gnu_cxx13new_allocatorIiE10deallocateEPim>
-  401d44:	nop
-  401d45:	leaveq 
-  401d46:	retq   
+0000000000401d18 <_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim>:
+  401d18:	push   %rbp
+  401d19:	mov    %rsp,%rbp
+  401d1c:	sub    $0x20,%rsp
+  401d20:	mov    %rdi,-0x8(%rbp)
+  401d24:	mov    %rsi,-0x10(%rbp)
+  401d28:	mov    %rdx,-0x18(%rbp)
+  401d2c:	cmpq   $0x0,-0x10(%rbp)
+  401d31:	je     401d4a <_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim+0x32>
+  401d33:	mov    -0x8(%rbp),%rax
+  401d37:	mov    -0x18(%rbp),%rdx
+  401d3b:	mov    -0x10(%rbp),%rcx
+  401d3f:	mov    %rcx,%rsi
+  401d42:	mov    %rax,%rdi
+  401d45:	callq  401dfd <_ZN9__gnu_cxx14__alloc_traitsISaIiEE10deallocateERS1_Pim>
+  401d4a:	nop
+  401d4b:	leaveq 
+  401d4c:	retq   
 
-0000000000401d47 <_ZSt20uninitialized_fill_nIPimiET_S1_T0_RKT1_>:
-  401d47:	push   %rbp
-  401d48:	mov    %rsp,%rbp
-  401d4b:	sub    $0x30,%rsp
-  401d4f:	mov    %rdi,-0x18(%rbp)
-  401d53:	mov    %rsi,-0x20(%rbp)
-  401d57:	mov    %rdx,-0x28(%rbp)
-  401d5b:	movb   $0x1,-0x1(%rbp)
-  401d5f:	mov    -0x28(%rbp),%rdx
-  401d63:	mov    -0x20(%rbp),%rcx
-  401d67:	mov    -0x18(%rbp),%rax
-  401d6b:	mov    %rcx,%rsi
-  401d6e:	mov    %rax,%rdi
-  401d71:	callq  401de5 <_ZNSt22__uninitialized_fill_nILb1EE15__uninit_fill_nIPimiEET_S3_T0_RKT1_>
-  401d76:	leaveq 
-  401d77:	retq   
+0000000000401d4d <_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E>:
+  401d4d:	push   %rbp
+  401d4e:	mov    %rsp,%rbp
+  401d51:	sub    $0x20,%rsp
+  401d55:	mov    %rdi,-0x8(%rbp)
+  401d59:	mov    %rsi,-0x10(%rbp)
+  401d5d:	mov    %rdx,-0x18(%rbp)
+  401d61:	mov    %rcx,-0x20(%rbp)
+  401d65:	mov    -0x18(%rbp),%rdx
+  401d69:	mov    -0x10(%rbp),%rcx
+  401d6d:	mov    -0x8(%rbp),%rax
+  401d71:	mov    %rcx,%rsi
+  401d74:	mov    %rax,%rdi
+  401d77:	callq  401e2b <_ZSt20uninitialized_fill_nIPimiET_S1_T0_RKT1_>
+  401d7c:	leaveq 
+  401d7d:	retq   
 
-0000000000401d78 <_ZNSt12_Destroy_auxILb1EE9__destroyIPiEEvT_S3_>:
-  401d78:	push   %rbp
-  401d79:	mov    %rsp,%rbp
-  401d7c:	mov    %rdi,-0x8(%rbp)
-  401d80:	mov    %rsi,-0x10(%rbp)
-  401d84:	nop
-  401d85:	pop    %rbp
-  401d86:	retq   
-  401d87:	nop
+0000000000401d7e <_ZSt8_DestroyIPiEvT_S1_>:
+  401d7e:	push   %rbp
+  401d7f:	mov    %rsp,%rbp
+  401d82:	sub    $0x10,%rsp
+  401d86:	mov    %rdi,-0x8(%rbp)
+  401d8a:	mov    %rsi,-0x10(%rbp)
+  401d8e:	mov    -0x10(%rbp),%rdx
+  401d92:	mov    -0x8(%rbp),%rax
+  401d96:	mov    %rdx,%rsi
+  401d99:	mov    %rax,%rdi
+  401d9c:	callq  401e5c <_ZNSt12_Destroy_auxILb1EE9__destroyIPiEEvT_S3_>
+  401da1:	nop
+  401da2:	leaveq 
+  401da3:	retq   
 
-0000000000401d88 <_ZN9__gnu_cxx13new_allocatorIiEC1ERKS1_>:
-  401d88:	push   %rbp
-  401d89:	mov    %rsp,%rbp
-  401d8c:	mov    %rdi,-0x8(%rbp)
-  401d90:	mov    %rsi,-0x10(%rbp)
-  401d94:	nop
-  401d95:	pop    %rbp
-  401d96:	retq   
+0000000000401da4 <_ZNSaIiEC1ERKS_>:
+  401da4:	push   %rbp
+  401da5:	mov    %rsp,%rbp
+  401da8:	sub    $0x10,%rsp
+  401dac:	mov    %rdi,-0x8(%rbp)
+  401db0:	mov    %rsi,-0x10(%rbp)
+  401db4:	mov    -0x10(%rbp),%rdx
+  401db8:	mov    -0x8(%rbp),%rax
+  401dbc:	mov    %rdx,%rsi
+  401dbf:	mov    %rax,%rdi
+  401dc2:	callq  401e6c <_ZN9__gnu_cxx13new_allocatorIiEC1ERKS1_>
+  401dc7:	nop
+  401dc8:	leaveq 
+  401dc9:	retq   
 
-0000000000401d97 <_ZN9__gnu_cxx14__alloc_traitsISaIiEE8allocateERS1_m>:
-  401d97:	push   %rbp
-  401d98:	mov    %rsp,%rbp
-  401d9b:	sub    $0x10,%rsp
-  401d9f:	mov    %rdi,-0x8(%rbp)
-  401da3:	mov    %rsi,-0x10(%rbp)
-  401da7:	mov    -0x10(%rbp),%rcx
-  401dab:	mov    -0x8(%rbp),%rax
-  401daf:	mov    $0x0,%edx
-  401db4:	mov    %rcx,%rsi
-  401db7:	mov    %rax,%rdi
-  401dba:	callq  401e12 <_ZN9__gnu_cxx13new_allocatorIiE8allocateEmPKv>
-  401dbf:	leaveq 
-  401dc0:	retq   
-  401dc1:	nop
+0000000000401dca <_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm>:
+  401dca:	push   %rbp
+  401dcb:	mov    %rsp,%rbp
+  401dce:	sub    $0x10,%rsp
+  401dd2:	mov    %rdi,-0x8(%rbp)
+  401dd6:	mov    %rsi,-0x10(%rbp)
+  401dda:	cmpq   $0x0,-0x10(%rbp)
+  401ddf:	je     401df6 <_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm+0x2c>
+  401de1:	mov    -0x8(%rbp),%rax
+  401de5:	mov    -0x10(%rbp),%rdx
+  401de9:	mov    %rdx,%rsi
+  401dec:	mov    %rax,%rdi
+  401def:	callq  401e7b <_ZN9__gnu_cxx14__alloc_traitsISaIiEE8allocateERS1_m>
+  401df4:	jmp    401dfb <_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm+0x31>
+  401df6:	mov    $0x0,%eax
+  401dfb:	leaveq 
+  401dfc:	retq   
 
-0000000000401dc2 <_ZN9__gnu_cxx13new_allocatorIiE10deallocateEPim>:
-  401dc2:	push   %rbp
-  401dc3:	mov    %rsp,%rbp
-  401dc6:	sub    $0x20,%rsp
-  401dca:	mov    %rdi,-0x8(%rbp)
-  401dce:	mov    %rsi,-0x10(%rbp)
-  401dd2:	mov    %rdx,-0x18(%rbp)
-  401dd6:	mov    -0x10(%rbp),%rax
-  401dda:	mov    %rax,%rdi
-  401ddd:	callq  400dc0 <_ZdlPv@plt>
-  401de2:	nop
-  401de3:	leaveq 
-  401de4:	retq   
+0000000000401dfd <_ZN9__gnu_cxx14__alloc_traitsISaIiEE10deallocateERS1_Pim>:
+  401dfd:	push   %rbp
+  401dfe:	mov    %rsp,%rbp
+  401e01:	sub    $0x20,%rsp
+  401e05:	mov    %rdi,-0x8(%rbp)
+  401e09:	mov    %rsi,-0x10(%rbp)
+  401e0d:	mov    %rdx,-0x18(%rbp)
+  401e11:	mov    -0x18(%rbp),%rdx
+  401e15:	mov    -0x10(%rbp),%rcx
+  401e19:	mov    -0x8(%rbp),%rax
+  401e1d:	mov    %rcx,%rsi
+  401e20:	mov    %rax,%rdi
+  401e23:	callq  401ea6 <_ZN9__gnu_cxx13new_allocatorIiE10deallocateEPim>
+  401e28:	nop
+  401e29:	leaveq 
+  401e2a:	retq   
 
-0000000000401de5 <_ZNSt22__uninitialized_fill_nILb1EE15__uninit_fill_nIPimiEET_S3_T0_RKT1_>:
-  401de5:	push   %rbp
-  401de6:	mov    %rsp,%rbp
-  401de9:	sub    $0x20,%rsp
-  401ded:	mov    %rdi,-0x8(%rbp)
-  401df1:	mov    %rsi,-0x10(%rbp)
-  401df5:	mov    %rdx,-0x18(%rbp)
-  401df9:	mov    -0x18(%rbp),%rdx
-  401dfd:	mov    -0x10(%rbp),%rcx
-  401e01:	mov    -0x8(%rbp),%rax
-  401e05:	mov    %rcx,%rsi
-  401e08:	mov    %rax,%rdi
-  401e0b:	callq  401e54 <_ZSt6fill_nIPimiET_S1_T0_RKT1_>
-  401e10:	leaveq 
-  401e11:	retq   
+0000000000401e2b <_ZSt20uninitialized_fill_nIPimiET_S1_T0_RKT1_>:
+  401e2b:	push   %rbp
+  401e2c:	mov    %rsp,%rbp
+  401e2f:	sub    $0x30,%rsp
+  401e33:	mov    %rdi,-0x18(%rbp)
+  401e37:	mov    %rsi,-0x20(%rbp)
+  401e3b:	mov    %rdx,-0x28(%rbp)
+  401e3f:	movb   $0x1,-0x1(%rbp)
+  401e43:	mov    -0x28(%rbp),%rdx
+  401e47:	mov    -0x20(%rbp),%rcx
+  401e4b:	mov    -0x18(%rbp),%rax
+  401e4f:	mov    %rcx,%rsi
+  401e52:	mov    %rax,%rdi
+  401e55:	callq  401ec9 <_ZNSt22__uninitialized_fill_nILb1EE15__uninit_fill_nIPimiEET_S3_T0_RKT1_>
+  401e5a:	leaveq 
+  401e5b:	retq   
 
-0000000000401e12 <_ZN9__gnu_cxx13new_allocatorIiE8allocateEmPKv>:
-  401e12:	push   %rbp
-  401e13:	mov    %rsp,%rbp
-  401e16:	sub    $0x20,%rsp
-  401e1a:	mov    %rdi,-0x8(%rbp)
-  401e1e:	mov    %rsi,-0x10(%rbp)
-  401e22:	mov    %rdx,-0x18(%rbp)
-  401e26:	mov    -0x8(%rbp),%rax
-  401e2a:	mov    %rax,%rdi
-  401e2d:	callq  401e8c <_ZNK9__gnu_cxx13new_allocatorIiE8max_sizeEv>
-  401e32:	cmp    -0x10(%rbp),%rax
-  401e36:	setb   %al
-  401e39:	test   %al,%al
-  401e3b:	je     401e42 <_ZN9__gnu_cxx13new_allocatorIiE8allocateEmPKv+0x30>
-  401e3d:	callq  400ed0 <_ZSt17__throw_bad_allocv@plt>
-  401e42:	mov    -0x10(%rbp),%rax
-  401e46:	shl    $0x2,%rax
-  401e4a:	mov    %rax,%rdi
-  401e4d:	callq  400f10 <_Znwm@plt>
-  401e52:	leaveq 
-  401e53:	retq   
+0000000000401e5c <_ZNSt12_Destroy_auxILb1EE9__destroyIPiEEvT_S3_>:
+  401e5c:	push   %rbp
+  401e5d:	mov    %rsp,%rbp
+  401e60:	mov    %rdi,-0x8(%rbp)
+  401e64:	mov    %rsi,-0x10(%rbp)
+  401e68:	nop
+  401e69:	pop    %rbp
+  401e6a:	retq   
+  401e6b:	nop
 
-0000000000401e54 <_ZSt6fill_nIPimiET_S1_T0_RKT1_>:
-  401e54:	push   %rbp
-  401e55:	mov    %rsp,%rbp
-  401e58:	sub    $0x20,%rsp
-  401e5c:	mov    %rdi,-0x8(%rbp)
-  401e60:	mov    %rsi,-0x10(%rbp)
-  401e64:	mov    %rdx,-0x18(%rbp)
-  401e68:	mov    -0x8(%rbp),%rax
-  401e6c:	mov    %rax,%rdi
-  401e6f:	callq  401ea0 <_ZSt12__niter_baseIPiENSt11_Niter_baseIT_E13iterator_typeES2_>
-  401e74:	mov    %rax,%rcx
-  401e77:	mov    -0x18(%rbp),%rdx
-  401e7b:	mov    -0x10(%rbp),%rax
-  401e7f:	mov    %rax,%rsi
-  401e82:	mov    %rcx,%rdi
-  401e85:	callq  401eba <_ZSt10__fill_n_aIPimiEN9__gnu_cxx11__enable_ifIXsrSt11__is_scalarIT1_E7__valueET_E6__typeES6_T0_RKS4_>
-  401e8a:	leaveq 
-  401e8b:	retq   
+0000000000401e6c <_ZN9__gnu_cxx13new_allocatorIiEC1ERKS1_>:
+  401e6c:	push   %rbp
+  401e6d:	mov    %rsp,%rbp
+  401e70:	mov    %rdi,-0x8(%rbp)
+  401e74:	mov    %rsi,-0x10(%rbp)
+  401e78:	nop
+  401e79:	pop    %rbp
+  401e7a:	retq   
 
-0000000000401e8c <_ZNK9__gnu_cxx13new_allocatorIiE8max_sizeEv>:
-  401e8c:	push   %rbp
-  401e8d:	mov    %rsp,%rbp
-  401e90:	mov    %rdi,-0x8(%rbp)
-  401e94:	movabs $0x3fffffffffffffff,%rax
-  401e9e:	pop    %rbp
-  401e9f:	retq   
+0000000000401e7b <_ZN9__gnu_cxx14__alloc_traitsISaIiEE8allocateERS1_m>:
+  401e7b:	push   %rbp
+  401e7c:	mov    %rsp,%rbp
+  401e7f:	sub    $0x10,%rsp
+  401e83:	mov    %rdi,-0x8(%rbp)
+  401e87:	mov    %rsi,-0x10(%rbp)
+  401e8b:	mov    -0x10(%rbp),%rcx
+  401e8f:	mov    -0x8(%rbp),%rax
+  401e93:	mov    $0x0,%edx
+  401e98:	mov    %rcx,%rsi
+  401e9b:	mov    %rax,%rdi
+  401e9e:	callq  401ef6 <_ZN9__gnu_cxx13new_allocatorIiE8allocateEmPKv>
+  401ea3:	leaveq 
+  401ea4:	retq   
+  401ea5:	nop
 
-0000000000401ea0 <_ZSt12__niter_baseIPiENSt11_Niter_baseIT_E13iterator_typeES2_>:
-  401ea0:	push   %rbp
-  401ea1:	mov    %rsp,%rbp
-  401ea4:	sub    $0x10,%rsp
-  401ea8:	mov    %rdi,-0x8(%rbp)
-  401eac:	mov    -0x8(%rbp),%rax
-  401eb0:	mov    %rax,%rdi
-  401eb3:	callq  401efd <_ZNSt10_Iter_baseIPiLb0EE7_S_baseES0_>
-  401eb8:	leaveq 
-  401eb9:	retq   
+0000000000401ea6 <_ZN9__gnu_cxx13new_allocatorIiE10deallocateEPim>:
+  401ea6:	push   %rbp
+  401ea7:	mov    %rsp,%rbp
+  401eaa:	sub    $0x20,%rsp
+  401eae:	mov    %rdi,-0x8(%rbp)
+  401eb2:	mov    %rsi,-0x10(%rbp)
+  401eb6:	mov    %rdx,-0x18(%rbp)
+  401eba:	mov    -0x10(%rbp),%rax
+  401ebe:	mov    %rax,%rdi
+  401ec1:	callq  400dc0 <_ZdlPv@plt>
+  401ec6:	nop
+  401ec7:	leaveq 
+  401ec8:	retq   
 
-0000000000401eba <_ZSt10__fill_n_aIPimiEN9__gnu_cxx11__enable_ifIXsrSt11__is_scalarIT1_E7__valueET_E6__typeES6_T0_RKS4_>:
-  401eba:	push   %rbp
-  401ebb:	mov    %rsp,%rbp
-  401ebe:	mov    %rdi,-0x18(%rbp)
-  401ec2:	mov    %rsi,-0x20(%rbp)
-  401ec6:	mov    %rdx,-0x28(%rbp)
-  401eca:	mov    -0x28(%rbp),%rax
-  401ece:	mov    (%rax),%eax
-  401ed0:	mov    %eax,-0xc(%rbp)
-  401ed3:	mov    -0x20(%rbp),%rax
-  401ed7:	mov    %rax,-0x8(%rbp)
-  401edb:	cmpq   $0x0,-0x8(%rbp)
-  401ee0:	je     401ef7 <_ZSt10__fill_n_aIPimiEN9__gnu_cxx11__enable_ifIXsrSt11__is_scalarIT1_E7__valueET_E6__typeES6_T0_RKS4_+0x3d>
-  401ee2:	mov    -0x18(%rbp),%rax
-  401ee6:	mov    -0xc(%rbp),%edx
-  401ee9:	mov    %edx,(%rax)
-  401eeb:	subq   $0x1,-0x8(%rbp)
-  401ef0:	addq   $0x4,-0x18(%rbp)
-  401ef5:	jmp    401edb <_ZSt10__fill_n_aIPimiEN9__gnu_cxx11__enable_ifIXsrSt11__is_scalarIT1_E7__valueET_E6__typeES6_T0_RKS4_+0x21>
-  401ef7:	mov    -0x18(%rbp),%rax
-  401efb:	pop    %rbp
-  401efc:	retq   
+0000000000401ec9 <_ZNSt22__uninitialized_fill_nILb1EE15__uninit_fill_nIPimiEET_S3_T0_RKT1_>:
+  401ec9:	push   %rbp
+  401eca:	mov    %rsp,%rbp
+  401ecd:	sub    $0x20,%rsp
+  401ed1:	mov    %rdi,-0x8(%rbp)
+  401ed5:	mov    %rsi,-0x10(%rbp)
+  401ed9:	mov    %rdx,-0x18(%rbp)
+  401edd:	mov    -0x18(%rbp),%rdx
+  401ee1:	mov    -0x10(%rbp),%rcx
+  401ee5:	mov    -0x8(%rbp),%rax
+  401ee9:	mov    %rcx,%rsi
+  401eec:	mov    %rax,%rdi
+  401eef:	callq  401f38 <_ZSt6fill_nIPimiET_S1_T0_RKT1_>
+  401ef4:	leaveq 
+  401ef5:	retq   
 
-0000000000401efd <_ZNSt10_Iter_baseIPiLb0EE7_S_baseES0_>:
-  401efd:	push   %rbp
-  401efe:	mov    %rsp,%rbp
-  401f01:	mov    %rdi,-0x8(%rbp)
-  401f05:	mov    -0x8(%rbp),%rax
-  401f09:	pop    %rbp
-  401f0a:	retq   
-  401f0b:	nopl   0x0(%rax,%rax,1)
+0000000000401ef6 <_ZN9__gnu_cxx13new_allocatorIiE8allocateEmPKv>:
+  401ef6:	push   %rbp
+  401ef7:	mov    %rsp,%rbp
+  401efa:	sub    $0x20,%rsp
+  401efe:	mov    %rdi,-0x8(%rbp)
+  401f02:	mov    %rsi,-0x10(%rbp)
+  401f06:	mov    %rdx,-0x18(%rbp)
+  401f0a:	mov    -0x8(%rbp),%rax
+  401f0e:	mov    %rax,%rdi
+  401f11:	callq  401f70 <_ZNK9__gnu_cxx13new_allocatorIiE8max_sizeEv>
+  401f16:	cmp    -0x10(%rbp),%rax
+  401f1a:	setb   %al
+  401f1d:	test   %al,%al
+  401f1f:	je     401f26 <_ZN9__gnu_cxx13new_allocatorIiE8allocateEmPKv+0x30>
+  401f21:	callq  400ed0 <_ZSt17__throw_bad_allocv@plt>
+  401f26:	mov    -0x10(%rbp),%rax
+  401f2a:	shl    $0x2,%rax
+  401f2e:	mov    %rax,%rdi
+  401f31:	callq  400f10 <_Znwm@plt>
+  401f36:	leaveq 
+  401f37:	retq   
 
-0000000000401f10 <__libc_csu_init>:
-  401f10:	push   %r15
-  401f12:	push   %r14
-  401f14:	mov    %edi,%r15d
-  401f17:	push   %r13
-  401f19:	push   %r12
-  401f1b:	lea    0x200ec6(%rip),%r12        # 602de8 <__frame_dummy_init_array_entry>
-  401f22:	push   %rbp
-  401f23:	lea    0x200ece(%rip),%rbp        # 602df8 <__init_array_end>
-  401f2a:	push   %rbx
-  401f2b:	mov    %rsi,%r14
-  401f2e:	mov    %rdx,%r13
-  401f31:	sub    %r12,%rbp
-  401f34:	sub    $0x8,%rsp
-  401f38:	sar    $0x3,%rbp
-  401f3c:	callq  400d20 <_init>
-  401f41:	test   %rbp,%rbp
-  401f44:	je     401f66 <__libc_csu_init+0x56>
-  401f46:	xor    %ebx,%ebx
-  401f48:	nopl   0x0(%rax,%rax,1)
-  401f50:	mov    %r13,%rdx
-  401f53:	mov    %r14,%rsi
-  401f56:	mov    %r15d,%edi
-  401f59:	callq  *(%r12,%rbx,8)
-  401f5d:	add    $0x1,%rbx
-  401f61:	cmp    %rbp,%rbx
-  401f64:	jne    401f50 <__libc_csu_init+0x40>
-  401f66:	add    $0x8,%rsp
-  401f6a:	pop    %rbx
-  401f6b:	pop    %rbp
-  401f6c:	pop    %r12
-  401f6e:	pop    %r13
-  401f70:	pop    %r14
-  401f72:	pop    %r15
-  401f74:	retq   
-  401f75:	nop
-  401f76:	nopw   %cs:0x0(%rax,%rax,1)
+0000000000401f38 <_ZSt6fill_nIPimiET_S1_T0_RKT1_>:
+  401f38:	push   %rbp
+  401f39:	mov    %rsp,%rbp
+  401f3c:	sub    $0x20,%rsp
+  401f40:	mov    %rdi,-0x8(%rbp)
+  401f44:	mov    %rsi,-0x10(%rbp)
+  401f48:	mov    %rdx,-0x18(%rbp)
+  401f4c:	mov    -0x8(%rbp),%rax
+  401f50:	mov    %rax,%rdi
+  401f53:	callq  401f84 <_ZSt12__niter_baseIPiENSt11_Niter_baseIT_E13iterator_typeES2_>
+  401f58:	mov    %rax,%rcx
+  401f5b:	mov    -0x18(%rbp),%rdx
+  401f5f:	mov    -0x10(%rbp),%rax
+  401f63:	mov    %rax,%rsi
+  401f66:	mov    %rcx,%rdi
+  401f69:	callq  401f9e <_ZSt10__fill_n_aIPimiEN9__gnu_cxx11__enable_ifIXsrSt11__is_scalarIT1_E7__valueET_E6__typeES6_T0_RKS4_>
+  401f6e:	leaveq 
+  401f6f:	retq   
 
-0000000000401f80 <__libc_csu_fini>:
-  401f80:	repz retq 
+0000000000401f70 <_ZNK9__gnu_cxx13new_allocatorIiE8max_sizeEv>:
+  401f70:	push   %rbp
+  401f71:	mov    %rsp,%rbp
+  401f74:	mov    %rdi,-0x8(%rbp)
+  401f78:	movabs $0x3fffffffffffffff,%rax
+  401f82:	pop    %rbp
+  401f83:	retq   
+
+0000000000401f84 <_ZSt12__niter_baseIPiENSt11_Niter_baseIT_E13iterator_typeES2_>:
+  401f84:	push   %rbp
+  401f85:	mov    %rsp,%rbp
+  401f88:	sub    $0x10,%rsp
+  401f8c:	mov    %rdi,-0x8(%rbp)
+  401f90:	mov    -0x8(%rbp),%rax
+  401f94:	mov    %rax,%rdi
+  401f97:	callq  401fe1 <_ZNSt10_Iter_baseIPiLb0EE7_S_baseES0_>
+  401f9c:	leaveq 
+  401f9d:	retq   
+
+0000000000401f9e <_ZSt10__fill_n_aIPimiEN9__gnu_cxx11__enable_ifIXsrSt11__is_scalarIT1_E7__valueET_E6__typeES6_T0_RKS4_>:
+  401f9e:	push   %rbp
+  401f9f:	mov    %rsp,%rbp
+  401fa2:	mov    %rdi,-0x18(%rbp)
+  401fa6:	mov    %rsi,-0x20(%rbp)
+  401faa:	mov    %rdx,-0x28(%rbp)
+  401fae:	mov    -0x28(%rbp),%rax
+  401fb2:	mov    (%rax),%eax
+  401fb4:	mov    %eax,-0xc(%rbp)
+  401fb7:	mov    -0x20(%rbp),%rax
+  401fbb:	mov    %rax,-0x8(%rbp)
+  401fbf:	cmpq   $0x0,-0x8(%rbp)
+  401fc4:	je     401fdb <_ZSt10__fill_n_aIPimiEN9__gnu_cxx11__enable_ifIXsrSt11__is_scalarIT1_E7__valueET_E6__typeES6_T0_RKS4_+0x3d>
+  401fc6:	mov    -0x18(%rbp),%rax
+  401fca:	mov    -0xc(%rbp),%edx
+  401fcd:	mov    %edx,(%rax)
+  401fcf:	subq   $0x1,-0x8(%rbp)
+  401fd4:	addq   $0x4,-0x18(%rbp)
+  401fd9:	jmp    401fbf <_ZSt10__fill_n_aIPimiEN9__gnu_cxx11__enable_ifIXsrSt11__is_scalarIT1_E7__valueET_E6__typeES6_T0_RKS4_+0x21>
+  401fdb:	mov    -0x18(%rbp),%rax
+  401fdf:	pop    %rbp
+  401fe0:	retq   
+
+0000000000401fe1 <_ZNSt10_Iter_baseIPiLb0EE7_S_baseES0_>:
+  401fe1:	push   %rbp
+  401fe2:	mov    %rsp,%rbp
+  401fe5:	mov    %rdi,-0x8(%rbp)
+  401fe9:	mov    -0x8(%rbp),%rax
+  401fed:	pop    %rbp
+  401fee:	retq   
+  401fef:	nop
+
+0000000000401ff0 <__libc_csu_init>:
+  401ff0:	push   %r15
+  401ff2:	push   %r14
+  401ff4:	mov    %edi,%r15d
+  401ff7:	push   %r13
+  401ff9:	push   %r12
+  401ffb:	lea    0x200de6(%rip),%r12        # 602de8 <__frame_dummy_init_array_entry>
+  402002:	push   %rbp
+  402003:	lea    0x200dee(%rip),%rbp        # 602df8 <__init_array_end>
+  40200a:	push   %rbx
+  40200b:	mov    %rsi,%r14
+  40200e:	mov    %rdx,%r13
+  402011:	sub    %r12,%rbp
+  402014:	sub    $0x8,%rsp
+  402018:	sar    $0x3,%rbp
+  40201c:	callq  400d20 <_init>
+  402021:	test   %rbp,%rbp
+  402024:	je     402046 <__libc_csu_init+0x56>
+  402026:	xor    %ebx,%ebx
+  402028:	nopl   0x0(%rax,%rax,1)
+  402030:	mov    %r13,%rdx
+  402033:	mov    %r14,%rsi
+  402036:	mov    %r15d,%edi
+  402039:	callq  *(%r12,%rbx,8)
+  40203d:	add    $0x1,%rbx
+  402041:	cmp    %rbp,%rbx
+  402044:	jne    402030 <__libc_csu_init+0x40>
+  402046:	add    $0x8,%rsp
+  40204a:	pop    %rbx
+  40204b:	pop    %rbp
+  40204c:	pop    %r12
+  40204e:	pop    %r13
+  402050:	pop    %r14
+  402052:	pop    %r15
+  402054:	retq   
+  402055:	nop
+  402056:	nopw   %cs:0x0(%rax,%rax,1)
+
+0000000000402060 <__libc_csu_fini>:
+  402060:	repz retq 
 
 Disassembly of section .fini:
 
-0000000000401f84 <_fini>:
-  401f84:	sub    $0x8,%rsp
-  401f88:	add    $0x8,%rsp
-  401f8c:	retq   
+0000000000402064 <_fini>:
+  402064:	sub    $0x8,%rsp
+  402068:	add    $0x8,%rsp
+  40206c:	retq   

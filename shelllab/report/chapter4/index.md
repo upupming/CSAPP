@@ -17,6 +17,7 @@ tsh与tshref的输出在一下两个方面可以不同：
 #### 4.3.1 测试用例trace01.txt
 
 |tsh测试结果|tshref测试结果|
+|-|-|
 |
 ```bash
 ./sdriver.pl -t trace01.txt -s ./tsh -a "-p"

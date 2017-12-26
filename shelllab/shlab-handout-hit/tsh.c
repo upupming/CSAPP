@@ -211,12 +211,12 @@ void eval(char *cmdline)
 	       so that the kernel doesn't send ctrl-c and ctrl-z
 	       signals to all of the shell's jobs */
 	    if (setpgid(0, 0) < 0)
-		unix_error("setpgid error");
+		    unix_error("setpgid error");
 
 	    /* Now load and run the program in the new job */
 	    if (execve(argv[0], argv, environ) < 0) {
-		printf("%s: Command not found\n", argv[0]);
-		exit(0);
+    		printf("%s: Command not found\n", argv[0]);
+    		exit(0);
 	    }
 	}
 
@@ -230,7 +230,7 @@ void eval(char *cmdline)
 	sigprocmask(SIG_UNBLOCK, &mask, NULL);
 
 	if (!bg)
-	    waitfg(pid);
+	   waitfg(pid);
 	else
 	    printf("[%d] (%d) %s", pid2jid(pid), pid, cmdline);
     }
@@ -377,6 +377,16 @@ void do_bgfg(char **argv)
  */
 void waitfg(pid_t pid)
 {
+    // 这种情况永远不会出现，因为只在父进程（pid>0）时调用它
+    if(pid<=0){
+        printf("waitfg: Internal error\n");
+        exit(0);
+    }
+    // 由PID得到任务
+    struct job_t *job = getjobpid(jobs, pid);
+    // 任务没有终止，且仍为前台，等待
+    //printf("waiting %d...\n", pid);
+    while(job->pid==pid && job->state==FG);
     return;
 }
 
@@ -393,6 +403,39 @@ void waitfg(pid_t pid)
  */
 void sigchld_handler(int sig)
 {
+    // 保存原有errno
+    int olderrno = errno;
+    int status;
+    sigset_t mask_all, prev_all;
+    pid_t pid;
+
+    // 每个信号都添加到nask_all中
+    sigfillset(&mask_all);
+    // 没有终止立即返回，有终止则返回PID
+    while((pid = waitpid(fgpid(jobs), &status, WNOHANG|WUNTRACED))>0){
+        // 阻塞所有信号
+        sigprocmask(SIG_BLOCK, &mask_all, &prev_all);
+
+        // 若当前这个子进程只是被停止（挂起）了,参考样例16得来
+        if(WIFSTOPPED(status)){
+            getjobpid(jobs, pid)->state = ST;
+            int jid = pid2jid(pid);
+            printf("Job [%d] (%d) stopped by signal %d\n", jid, pid, WSTOPSIG(status));
+        }
+        // exit 或者 return 退出
+        else if(WIFEXITED(status))
+            deletejob(jobs, pid);
+        // 被信号退出,参考样例16得来
+        else if(WIFSIGNALED(status)){
+            int jid = pid2jid(pid);
+            printf("Job [%d] (%d) terminated by signal %d\n", jid, pid, WTERMSIG(status));
+            deletejob(jobs, pid);
+        }
+        // 取消对信号的阻塞
+        sigprocmask(SIG_SETMASK, &prev_all, NULL);
+    }
+
+    errno = olderrno;
     return;
 }
 
@@ -403,6 +446,10 @@ void sigchld_handler(int sig)
  */
 void sigint_handler(int sig)
 {
+    pid_t pid = fgpid(jobs);
+    if(pid==0)return;
+    if(kill(-pid, sig)<0)
+        unix_error("send SIGINT error");
     return;
 }
 
@@ -413,6 +460,10 @@ void sigint_handler(int sig)
  */
 void sigtstp_handler(int sig)
 {
+    pid_t pid = fgpid(jobs);
+    if(pid==0)return;
+    if(kill(-pid, sig)<0)
+        unix_error("send SIGINT error");
     return;
 }
 
@@ -461,6 +512,7 @@ int addjob(struct job_t *jobs, pid_t pid, int state, char *cmdline)
 	return 0;
 
     for (i = 0; i < MAXJOBS; i++) {
+        //printf("i = %d\n", i);
         if (jobs[i].pid == 0) {// 尚未分配的任务空间
             jobs[i].pid = pid;// 进程号
             jobs[i].state = state;// fg还是bg？
@@ -472,6 +524,8 @@ int addjob(struct job_t *jobs, pid_t pid, int state, char *cmdline)
                 printf("Added job [%d] %d %s\n", jobs[i].jid, jobs[i].pid, jobs[i].cmdline);
             }
             // 新建成功，返回1
+            //listjobs(&jobs[i]);
+            //printf("\n\n\n\n");
             return 1;
         }
     }
@@ -505,8 +559,8 @@ pid_t fgpid(struct job_t *jobs) {
     int i;
 
     for (i = 0; i < MAXJOBS; i++)
-	if (jobs[i].state == FG)
-	    return jobs[i].pid;
+        if (jobs[i].state == FG)
+            return jobs[i].pid;
     return 0;
 }
 
@@ -530,8 +584,8 @@ struct job_t *getjobjid(struct job_t *jobs, int jid)
     if (jid < 1)
 	return NULL;
     for (i = 0; i < MAXJOBS; i++)
-	if (jobs[i].jid == jid)
-	    return &jobs[i];
+    	if (jobs[i].jid == jid)
+    	    return &jobs[i];
     return NULL;
 }
 

@@ -16,23 +16,24 @@ tsh与tshref的输出在一下两个方面可以不同：
 
 #### 4.3.1 测试用例trace01.txt
 
-<table style="width:100%">
+<table style="width:100%" border="1">
   <tr>
-    <th>tsh测试结果</th>
-    <th>tshref测试结果</th> 
-  </tr>
+    <th>tsh测试结果
+    <th>tshref测试结果
   
   <tr>
     <td><pre>./sdriver.pl -t trace01.txt -s ./tshref -a "-p"
 #
 # trace01.txt - Properly terminate on EOF.
-#</pre></td>
-    <td><pre>./sdriver.pl -t trace01.txt -s ./tshref -a "-p"
+#</pre>
+	<td><pre>./sdriver.pl -t trace01.txt -s ./tshref -a "-p"
 #
 # trace01.txt - Properly terminate on EOF.
-#</pre></td>
-  </tr>
+#</pre>
+
+  <tr><th colspan="2"><div align="center">测试结论：相同
 </table>
+
 
 
 

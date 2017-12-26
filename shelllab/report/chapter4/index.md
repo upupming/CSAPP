@@ -16,6 +16,8 @@ tsh与tshref的输出在一下两个方面可以不同：
 
 #### 4.3.1 测试用例trace01.txt
 
+    make test01; make rtest01
+
 <table style="width:100%" border="1">
   <tr>
     <th>tsh测试结果
@@ -25,16 +27,38 @@ tsh与tshref的输出在一下两个方面可以不同：
     <td><pre>./sdriver.pl -t trace01.txt -s ./tshref -a "-p"
 #
 # trace01.txt - Properly terminate on EOF.
-#</pre>
+#
+</pre>
 	<td><pre>./sdriver.pl -t trace01.txt -s ./tshref -a "-p"
 #
 # trace01.txt - Properly terminate on EOF.
-#</pre>
+#
+</pre>
 
   <tr><th colspan="2"><div align="center">测试结论：相同
 </table>
 
+#### 4.3.2 测试用例trace02.txt
 
+    make test02; make rtest02
 
+<table style="width:100%" border="1">
+  <tr>
+    <th>tsh测试结果
+    <th>tshref测试结果
+  
+  <tr>
+    <td><pre>./sdriver.pl -t trace02.txt -s ./tsh -a "-p"
+#
+# trace02.txt - Process builtin quit command.
+#
+</pre>
+	<td><pre>./sdriver.pl -t trace02.txt -s ./tshref -a "-p"
+#
+# trace02.txt - Process builtin quit command.
+#
+</pre>
 
+  <tr><th colspan="2"><div align="center">测试结论：相同
+</table>
 

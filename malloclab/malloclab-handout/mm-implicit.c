@@ -214,7 +214,7 @@ void mm_checkheap(int verbose)
     if (verbose)
         printf("Heap (%p):\n", heap_listp);
 
-    // 序言块必须为双字且已分配
+    // HDRP(heap_listp)实际上返回序言块的脚部，序言块必须为双字且已分配
     if ((GET_SIZE(HDRP(heap_listp)) != DSIZE) || !GET_ALLOC(HDRP(heap_listp)))
         printf("Bad prologue header\n");
     checkblock(heap_listp);
@@ -227,6 +227,7 @@ void mm_checkheap(int verbose)
 
     if (verbose)
         printblock(bp);
+    // 结尾块size必须是0，已分配
     if ((GET_SIZE(HDRP(bp)) != 0) || !(GET_ALLOC(HDRP(bp))))
         printf("Bad epilogue header\n");
 }
